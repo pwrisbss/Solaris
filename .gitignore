@@ -1,0 +1,12 @@
+# ignore build files
+build/*
+build/
+bin/*
+bin/
+
+# ignore workspace stuff
+.vscode/*
+.vscode/
+.cache/*
+.cache/
+compile_commands.json

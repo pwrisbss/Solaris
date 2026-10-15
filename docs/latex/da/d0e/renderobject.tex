@@ -1,0 +1,31 @@
+\chapter{Render Objects }
+\hypertarget{renderobject}{}\label{renderobject}\index{Render Objects@{Render Objects}}
+A Render Object is any object of any type derived from the {\ttfamily \doxylink{classSolaris_1_1RenderObject}{Solaris::\+\+Render\+Object}} base class.\hypertarget{renderobject_renderobject-definition}{}\doxysection{\texorpdfstring{Defining Render Objects}{Defining Render Objects}}\label{renderobject_renderobject-definition}
+\hypertarget{renderobject_renderobject-definition-polymorphism}{}\doxysubsection{\texorpdfstring{Polymorphism}{Polymorphism}}\label{renderobject_renderobject-definition-polymorphism}
+A Render Object is defined as an object that can be pointed to by a {\ttfamily \doxylink{classSolaris_1_1RenderObject}{Solaris::\+\+Render\+Object}\texorpdfstring{$\ast$}{*}}. Basically, what this means is that any object of any class that derives from {\ttfamily \doxylink{classSolaris_1_1RenderObject}{Solaris::\+\+Render\+Object}}, along with {\ttfamily \doxylink{classSolaris_1_1RenderObject}{Solaris::\+\+Render\+Object}} itself, could be considered a Render Object.
+
+Consider the following examples: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ NOT\ Render\ Objects}}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ x;}
+\DoxyCodeLine{\doxymbox{\hyperlink{structSolaris_1_1Resource}{Solaris::Resource}}\ resource1;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{class\ }SomeClass;}
+\DoxyCodeLine{SomeClass\ y;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Render\ Objects}}
+\DoxyCodeLine{\doxymbox{\hyperlink{classSolaris_1_1Model}{Solaris::Model}}\ sample\_model;}
+\DoxyCodeLine{\doxymbox{\hyperlink{classSolaris_1_1Camera}{Solaris::Camera}}\ sample\_camera;}
+\DoxyCodeLine{\doxymbox{\hyperlink{classSolaris_1_1RenderObject}{Solaris::RenderObject}}\ sample\_object;\ \ \ \textcolor{comment}{//\ although\ serves\ no\ valuable\ purpose\ (the\ reason\ will\ be\ clarified\ later),}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ technically\ it\ is\ indeed\ a\ render\ object}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{class\ }Foo\ :\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{classSolaris_1_1RenderObject}{Solaris::RenderObject}};}
+\DoxyCodeLine{Foo\ sample\_foo;}
+
+\end{DoxyCode}
+\hypertarget{renderobject_renderobject-definition-siblings}{}\doxysubsection{\texorpdfstring{Relationship with Siblings}{Relationship with Siblings}}\label{renderobject_renderobject-definition-siblings}
+Along with the aforementioned requirement, a render object must have at least one state/\+configuration which allows all of its siblings (render objects attached to the same renderer, see \doxysectlink{renderer}{The Solaris Renderer}{0}) to function normally even when itself is present.
+
+In other words, consider a render object type such as {\ttfamily \doxylink{classSolaris_1_1Model}{Solaris::\+\+Model}}. Its possible configurations are all the mesh and texture resources ({\ttfamily \doxylink{structSolaris_1_1Resource}{Solaris::\+\+Resource}}), positions, rotations, etc. it can contain. Normally, every model configured in a certain way could be siblings with all the other models configured in different ways, without causing any of them to render improperly.
+
+Alternatively, consider a render object type such as {\ttfamily \doxylink{classSolaris_1_1Camera}{Solaris::\+\+Camera}}. Its possible configurations are the different possible positions, projections, etc. it can have (plus an enabled/\+disabled state). While an enabled {\ttfamily \doxylink{classSolaris_1_1Camera}{Camera}} object would cause problems if siblings with other enabled {\ttfamily \doxylink{classSolaris_1_1Camera}{Camera}} object(s), in its disabled configurations, it doesn\textquotesingle{}t cause any problems with rendering or any other events (unless its somehow misconfigured otherwise). 

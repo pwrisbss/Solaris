@@ -1,0 +1,83 @@
+\doxysection{Solaris::Shader Class Reference}
+\hypertarget{classSolaris_1_1Shader}{}\label{classSolaris_1_1Shader}\index{Solaris::Shader@{Solaris::Shader}}
+
+
+Solaris \doxylink{classSolaris_1_1Shader}{Shader} Class.  
+
+
+
+
+{\ttfamily \+\#include $<$Shader.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{classSolaris_1_1Shader_a61cdd9dc2791f47b5edfda420a8b4d4e}{Shader}} (const char \texorpdfstring{$\ast$}{*}vertex\+\_\+shader\+\_\+source, const char \texorpdfstring{$\ast$}{*}fragment\+\_\+shader\+\_\+source)
+\begin{DoxyCompactList}\small\item\em Construct a new \doxylink{classSolaris_1_1Shader}{Shader} object. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{classSolaris_1_1Shader_ac834d1b19b8102b0a478840498676577}{Use}} ()
+\begin{DoxyCompactList}\small\item\em "{}\+Use"{} the shader program. \end{DoxyCompactList}\item 
+unsigned \doxymbox{\hyperlink{classSolaris_1_1Shader_aa42bac4645e95ff76688e5f39ed9136f}{Get\+Shader\+Prog}} ()
+\begin{DoxyCompactList}\small\item\em Get the shader program ID. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Solaris \doxylink{classSolaris_1_1Shader}{Shader} Class. 
+
+Solaris\textquotesingle{}s C++ wrapper for the Open\+GL shader system. Each {\ttfamily \doxylink{classSolaris_1_1Shader}{Shader}} object represents an Open\+GL shader pipeline (currently only supports one vertex shader and one fragment shader). 
+
+\label{classSolaris_1_1Shader_doc-constructors}
+\Hypertarget{classSolaris_1_1Shader_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classSolaris_1_1Shader_a61cdd9dc2791f47b5edfda420a8b4d4e}\index{Solaris::Shader@{Solaris::Shader}!Shader@{Shader}}
+\index{Shader@{Shader}!Solaris::Shader@{Solaris::Shader}}
+\doxysubsubsection{\texorpdfstring{Shader()}{Shader()}}
+{\footnotesize\ttfamily \label{classSolaris_1_1Shader_a61cdd9dc2791f47b5edfda420a8b4d4e} 
+Solaris::\+\+Shader::\+\+Shader (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{vertex\+\_\+shader\+\_\+source}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{fragment\+\_\+shader\+\_\+source}{}\end{DoxyParamCaption})}
+
+
+
+Construct a new \doxylink{classSolaris_1_1Shader}{Shader} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vertex\+\_\+shader\+\_\+source} & GLSL Source Code for the Vertex \doxylink{classSolaris_1_1Shader}{Shader} \\
+\hline
+{\em fragment\+\_\+shader\+\_\+source} & GLSL Source Code for the Fragment \doxylink{classSolaris_1_1Shader}{Shader} \\
+\hline
+\end{DoxyParams}
+
+
+\label{classSolaris_1_1Shader_doc-func-members}
+\Hypertarget{classSolaris_1_1Shader_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classSolaris_1_1Shader_aa42bac4645e95ff76688e5f39ed9136f}\index{Solaris::Shader@{Solaris::Shader}!GetShaderProg@{GetShaderProg}}
+\index{GetShaderProg@{GetShaderProg}!Solaris::Shader@{Solaris::Shader}}
+\doxysubsubsection{\texorpdfstring{GetShaderProg()}{GetShaderProg()}}
+{\footnotesize\ttfamily \label{classSolaris_1_1Shader_aa42bac4645e95ff76688e5f39ed9136f} 
+unsigned Solaris::\+\+Shader::\+\+Get\+Shader\+Prog (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Get the shader program ID. 
+
+Return the shader pipeline\textquotesingle{}s program ID used by Open\+GL to identify it. This is usually not needed unless you plan on implementing custom shader functionality or other rendering-\/related things. \begin{DoxyReturn}{Returns}
+unsigned int 
+\end{DoxyReturn}
+\Hypertarget{classSolaris_1_1Shader_ac834d1b19b8102b0a478840498676577}\index{Solaris::Shader@{Solaris::Shader}!Use@{Use}}
+\index{Use@{Use}!Solaris::Shader@{Solaris::Shader}}
+\doxysubsubsection{\texorpdfstring{Use()}{Use()}}
+{\footnotesize\ttfamily \label{classSolaris_1_1Shader_ac834d1b19b8102b0a478840498676577} 
+void Solaris::\+\+Shader::\+\+Use (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+"{}\+Use"{} the shader program. 
+
+Set this {\ttfamily \doxylink{classSolaris_1_1Shader}{Shader}} object as the active shader. Equivalent to {\ttfamily gl\+Use\+Program(shader.\+Get\+Shader\+Prog())}. \begin{DoxySeeAlso}{See also}
+\doxylink{classSolaris_1_1Shader_aa42bac4645e95ff76688e5f39ed9136f}{Solaris::\+\+Shader::\+\+Get\+Shader\+Prog()} 
+\end{DoxySeeAlso}
+
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+Shader.\+hpp\end{DoxyCompactItemize}

@@ -1,0 +1,221 @@
+\doxysection{Solaris::Renderer Class Reference}
+\hypertarget{classSolaris_1_1Renderer}{}\label{classSolaris_1_1Renderer}\index{Solaris::Renderer@{Solaris::Renderer}}
+
+
+Solaris \doxylink{classSolaris_1_1Renderer}{Renderer} class.  
+
+
+
+
+{\ttfamily \+\#include $<$Renderer.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{classSolaris_1_1Renderer_ae0c14c1129ce69aab3350769d9a95a19}{Renderer}} (std::\+string window\+\_\+title, int window\+\_\+width, int window\+\_\+height)
+\begin{DoxyCompactList}\small\item\em Construct a new \doxylink{classSolaris_1_1Renderer}{Renderer} object. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{classSolaris_1_1Renderer_a3cc8fbd9b0516a00dc4bbfeb9a1147f5}{Renderer}} (std::\+string window\+\_\+title, int window\+\_\+width, int window\+\_\+height, \doxymbox{\hyperlink{classSolaris_1_1Shader}{Shader}} \&shader)
+\begin{DoxyCompactList}\small\item\em Construct a new \doxylink{classSolaris_1_1Renderer}{Renderer} object. \end{DoxyCompactList}\item 
+\Hypertarget{classSolaris_1_1Renderer_a184173df71483527866440d110b56923}\label{classSolaris_1_1Renderer_a184173df71483527866440d110b56923} 
+void {\bfseries Tick} ()
+\begin{DoxyCompactList}\small\item\em \doxylink{classSolaris_1_1Renderer}{Renderer} Tick (see \doxysectlink{renderer}{The Solaris Renderer}{0}). \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{classSolaris_1_1Renderer_a8fbc9e800d6a9f8e6b5ff1dbecc17f64}{Add\+Tick\+Event}} (Renderer\+Tick\+Event event\+\_\+func)
+\begin{DoxyCompactList}\small\item\em Adds a tick event. That is, a function of type Renderer\+Tick\+Event that will be executed on each renderer tick (see \doxysectlink{renderer}{The Solaris Renderer}{0}). \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{classSolaris_1_1Renderer_aef612cad27bc95774859c7b5b3900bac}{Get\+Should\+Close}} ()
+\begin{DoxyCompactList}\small\item\em Returns {\ttfamily true} if the user has tried to close the window, {\ttfamily false} otherwise. \end{DoxyCompactList}\item 
+GLFWwindow \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{classSolaris_1_1Renderer_a50695b9727510ad53b4a1b6bc74a2eff}{Get\+GLFWWindow}} ()
+\begin{DoxyCompactList}\small\item\em Get the pointer to the GLFW window of this renderer. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{classSolaris_1_1Shader}{Shader}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{classSolaris_1_1Renderer_a2e6ce1c772e1a16ea6d92bc7e15a41fb}{Get\+Shader\+Ptr}} ()
+\begin{DoxyCompactList}\small\item\em Get the pointer to the attached \doxylink{classSolaris_1_1Shader}{Shader} object. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{classSolaris_1_1Renderer_a87f07b0b889059f678d4dbedba0a712f}{Set\+Should\+Close}} (bool value)
+\begin{DoxyCompactList}\small\item\em Set if the window should close. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{classSolaris_1_1Renderer_a4be7fbe5a1924959502c9c42eb2579e2}{Set\+Global\+Transform}} (glm::\+mat4 set\+\_\+to)
+\begin{DoxyCompactList}\small\item\em Set the {\ttfamily mat4 global\+\_\+transform} uniform on the shader pipeline (see \doxysectlink{renderer}{The Solaris Renderer}{0}). \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{classSolaris_1_1Renderer_ac8cc018ddf805859fa3858c9cc06bb38}{Attach\+Shader}} (\doxymbox{\hyperlink{classSolaris_1_1Shader}{Shader}} \&shader)
+\begin{DoxyCompactList}\small\item\em Attach a new shader to the current renderer. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{classSolaris_1_1Renderer_a8abbd4cb4a30cabc933207ca9b671ee0}{Attach\+Render\+Object}} (\doxymbox{\hyperlink{classSolaris_1_1RenderObject}{Render\+Object}} \texorpdfstring{$\ast$}{*}object)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Solaris \doxylink{classSolaris_1_1Renderer}{Renderer} class. 
+
+Almost all interactions with Open\+GL will be done through this class. A sort of an Open\+GL wrapper, if you will. 
+
+\label{classSolaris_1_1Renderer_doc-constructors}
+\Hypertarget{classSolaris_1_1Renderer_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classSolaris_1_1Renderer_ae0c14c1129ce69aab3350769d9a95a19}\index{Solaris::Renderer@{Solaris::Renderer}!Renderer@{Renderer}}
+\index{Renderer@{Renderer}!Solaris::Renderer@{Solaris::Renderer}}
+\doxysubsubsection{\texorpdfstring{Renderer()}{Renderer()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classSolaris_1_1Renderer_ae0c14c1129ce69aab3350769d9a95a19} 
+Solaris::\+\+Renderer::\+\+Renderer (\begin{DoxyParamCaption}\item[{std::\+string}]{window\+\_\+title}{, }\item[{int}]{window\+\_\+width}{, }\item[{int}]{window\+\_\+height}{}\end{DoxyParamCaption})}
+
+
+
+Construct a new \doxylink{classSolaris_1_1Renderer}{Renderer} object. 
+
+This will also initialize GLFW and GLAD and construct a new window, hence its ideal for each program to have one renderer and one renderer only.
+
+
+\begin{DoxyParams}{Parameters}
+{\em window\+\_\+title} & Title of the created window \\
+\hline
+{\em window\+\_\+width} & Width of the created window \\
+\hline
+{\em window\+\_\+height} & Height of the created window \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classSolaris_1_1Renderer_a3cc8fbd9b0516a00dc4bbfeb9a1147f5}\index{Solaris::Renderer@{Solaris::Renderer}!Renderer@{Renderer}}
+\index{Renderer@{Renderer}!Solaris::Renderer@{Solaris::Renderer}}
+\doxysubsubsection{\texorpdfstring{Renderer()}{Renderer()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classSolaris_1_1Renderer_a3cc8fbd9b0516a00dc4bbfeb9a1147f5} 
+Solaris::\+\+Renderer::\+\+Renderer (\begin{DoxyParamCaption}\item[{std::\+string}]{window\+\_\+title}{, }\item[{int}]{window\+\_\+width}{, }\item[{int}]{window\+\_\+height}{, }\item[{\doxymbox{\hyperlink{classSolaris_1_1Shader}{Shader}} \&}]{shader}{}\end{DoxyParamCaption})}
+
+
+
+Construct a new \doxylink{classSolaris_1_1Renderer}{Renderer} object. 
+
+Same as \doxylink{classSolaris_1_1Renderer_ae0c14c1129ce69aab3350769d9a95a19}{Renderer::\+\+Renderer(std::\+string window\+\_\+title, int window\+\_\+width, int window\+\_\+height)}, except also attaches a shader on constuction
+
+
+\begin{DoxyParams}{Parameters}
+{\em window\+\_\+title} & Title of the created window \\
+\hline
+{\em window\+\_\+width} & Width of the created window \\
+\hline
+{\em window\+\_\+height} & Height of the created window \\
+\hline
+{\em shader} & \doxylink{classSolaris_1_1Shader}{Shader} to be attached on construction \\
+\hline
+\end{DoxyParams}
+
+
+\label{classSolaris_1_1Renderer_doc-func-members}
+\Hypertarget{classSolaris_1_1Renderer_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classSolaris_1_1Renderer_a8fbc9e800d6a9f8e6b5ff1dbecc17f64}\index{Solaris::Renderer@{Solaris::Renderer}!AddTickEvent@{AddTickEvent}}
+\index{AddTickEvent@{AddTickEvent}!Solaris::Renderer@{Solaris::Renderer}}
+\doxysubsubsection{\texorpdfstring{AddTickEvent()}{AddTickEvent()}}
+{\footnotesize\ttfamily \label{classSolaris_1_1Renderer_a8fbc9e800d6a9f8e6b5ff1dbecc17f64} 
+void Solaris::\+\+Renderer::\+\+Add\+Tick\+Event (\begin{DoxyParamCaption}\item[{Renderer\+Tick\+Event}]{event\+\_\+func}{}\end{DoxyParamCaption})}
+
+
+
+Adds a tick event. That is, a function of type Renderer\+Tick\+Event that will be executed on each renderer tick (see \doxysectlink{renderer}{The Solaris Renderer}{0}). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em event\+\_\+func} & Event function to attach \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classSolaris_1_1Renderer_a8abbd4cb4a30cabc933207ca9b671ee0}\index{Solaris::Renderer@{Solaris::Renderer}!AttachRenderObject@{AttachRenderObject}}
+\index{AttachRenderObject@{AttachRenderObject}!Solaris::Renderer@{Solaris::Renderer}}
+\doxysubsubsection{\texorpdfstring{AttachRenderObject()}{AttachRenderObject()}}
+{\footnotesize\ttfamily \label{classSolaris_1_1Renderer_a8abbd4cb4a30cabc933207ca9b671ee0} 
+void Solaris::\+\+Renderer::\+\+Attach\+Render\+Object (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{classSolaris_1_1RenderObject}{Render\+Object}} \texorpdfstring{$\ast$}{*}}]{object}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em object} & \doxylink{classSolaris_1_1RenderObject}{Render\+Object} to be attached \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\doxysectlink{renderobject}{Render Objects}{0} 
+\end{DoxySeeAlso}
+\Hypertarget{classSolaris_1_1Renderer_ac8cc018ddf805859fa3858c9cc06bb38}\index{Solaris::Renderer@{Solaris::Renderer}!AttachShader@{AttachShader}}
+\index{AttachShader@{AttachShader}!Solaris::Renderer@{Solaris::Renderer}}
+\doxysubsubsection{\texorpdfstring{AttachShader()}{AttachShader()}}
+{\footnotesize\ttfamily \label{classSolaris_1_1Renderer_ac8cc018ddf805859fa3858c9cc06bb38} 
+void Solaris::\+\+Renderer::\+\+Attach\+Shader (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{classSolaris_1_1Shader}{Shader}} \&}]{shader}{}\end{DoxyParamCaption})}
+
+
+
+Attach a new shader to the current renderer. 
+
+\begin{DoxyNote}{Note}
+Please note that when attaching a shader to a renderer, the attached shader will be copied to a new location. Hence its a good idea to discard of the shader after it has been attached, unless you plan on using it elsewhere later.
+\end{DoxyNote}
+\begin{DoxyRefDesc}{Bug}
+\item[\doxymbox{\hyperlink{bug__bug000001}{Bug}}]When attaching a shader to a renderer with an already attached shader, the previous shader won\textquotesingle{}t be deallocated on the memory.\end{DoxyRefDesc}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em shader} & \doxylink{classSolaris_1_1Shader}{Shader} object to be attached. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classSolaris_1_1Renderer_a50695b9727510ad53b4a1b6bc74a2eff}\index{Solaris::Renderer@{Solaris::Renderer}!GetGLFWWindow@{GetGLFWWindow}}
+\index{GetGLFWWindow@{GetGLFWWindow}!Solaris::Renderer@{Solaris::Renderer}}
+\doxysubsubsection{\texorpdfstring{GetGLFWWindow()}{GetGLFWWindow()}}
+{\footnotesize\ttfamily \label{classSolaris_1_1Renderer_a50695b9727510ad53b4a1b6bc74a2eff} 
+GLFWwindow \texorpdfstring{$\ast$}{*} Solaris::\+\+Renderer::\+\+Get\+GLFWWindow (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Get the pointer to the GLFW window of this renderer. 
+
+\begin{DoxyReturn}{Returns}
+GLFWwindow\texorpdfstring{$\ast$}{*} Pointer to the GLFW window 
+\end{DoxyReturn}
+\Hypertarget{classSolaris_1_1Renderer_a2e6ce1c772e1a16ea6d92bc7e15a41fb}\index{Solaris::Renderer@{Solaris::Renderer}!GetShaderPtr@{GetShaderPtr}}
+\index{GetShaderPtr@{GetShaderPtr}!Solaris::Renderer@{Solaris::Renderer}}
+\doxysubsubsection{\texorpdfstring{GetShaderPtr()}{GetShaderPtr()}}
+{\footnotesize\ttfamily \label{classSolaris_1_1Renderer_a2e6ce1c772e1a16ea6d92bc7e15a41fb} 
+\doxymbox{\hyperlink{classSolaris_1_1Shader}{Shader}} \texorpdfstring{$\ast$}{*} Solaris::\+\+Renderer::\+\+Get\+Shader\+Ptr (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Get the pointer to the attached \doxylink{classSolaris_1_1Shader}{Shader} object. 
+
+\begin{DoxyReturn}{Returns}
+Shader\texorpdfstring{$\ast$}{*} Pointer to the currently attached shader. 
+\end{DoxyReturn}
+\Hypertarget{classSolaris_1_1Renderer_aef612cad27bc95774859c7b5b3900bac}\index{Solaris::Renderer@{Solaris::Renderer}!GetShouldClose@{GetShouldClose}}
+\index{GetShouldClose@{GetShouldClose}!Solaris::Renderer@{Solaris::Renderer}}
+\doxysubsubsection{\texorpdfstring{GetShouldClose()}{GetShouldClose()}}
+{\footnotesize\ttfamily \label{classSolaris_1_1Renderer_aef612cad27bc95774859c7b5b3900bac} 
+bool Solaris::\+\+Renderer::\+\+Get\+Should\+Close (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Returns {\ttfamily true} if the user has tried to close the window, {\ttfamily false} otherwise. 
+
+\begin{DoxyReturn}{Returns}
+true User has asked to close the program. 
+\end{DoxyReturn}
+\Hypertarget{classSolaris_1_1Renderer_a4be7fbe5a1924959502c9c42eb2579e2}\index{Solaris::Renderer@{Solaris::Renderer}!SetGlobalTransform@{SetGlobalTransform}}
+\index{SetGlobalTransform@{SetGlobalTransform}!Solaris::Renderer@{Solaris::Renderer}}
+\doxysubsubsection{\texorpdfstring{SetGlobalTransform()}{SetGlobalTransform()}}
+{\footnotesize\ttfamily \label{classSolaris_1_1Renderer_a4be7fbe5a1924959502c9c42eb2579e2} 
+void Solaris::\+\+Renderer::\+\+Set\+Global\+Transform (\begin{DoxyParamCaption}\item[{glm::\+mat4}]{set\+\_\+to}{}\end{DoxyParamCaption})}
+
+
+
+Set the {\ttfamily mat4 global\+\_\+transform} uniform on the shader pipeline (see \doxysectlink{renderer}{The Solaris Renderer}{0}). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em set\+\_\+to} & The transform matrix {\ttfamily global\+\_\+transform} will be set to. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classSolaris_1_1Renderer_a87f07b0b889059f678d4dbedba0a712f}\index{Solaris::Renderer@{Solaris::Renderer}!SetShouldClose@{SetShouldClose}}
+\index{SetShouldClose@{SetShouldClose}!Solaris::Renderer@{Solaris::Renderer}}
+\doxysubsubsection{\texorpdfstring{SetShouldClose()}{SetShouldClose()}}
+{\footnotesize\ttfamily \label{classSolaris_1_1Renderer_a87f07b0b889059f678d4dbedba0a712f} 
+void Solaris::\+\+Renderer::\+\+Set\+Should\+Close (\begin{DoxyParamCaption}\item[{bool}]{value}{}\end{DoxyParamCaption})}
+
+
+
+Set if the window should close. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & Should the window close? \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{Renderer_8hpp}{Renderer.\+hpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,58 @@
+\doxysection{Model.\+hpp}
+\hypertarget{Model_8hpp_source}{}\label{Model_8hpp_source}\index{Model.hpp@{Model.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ SOLARIS\_MODEL\_OBJECT\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ SOLARIS\_MODEL\_OBJECT\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <\doxymbox{\hyperlink{RenderObjects_8hpp}{Renderer/RenderObjects.hpp}}>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <\doxymbox{\hyperlink{Renderer_8hpp}{Renderer/Renderer.hpp}}>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <glad/glad.h>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <GLFW/glfw3.h>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <glm/glm.hpp>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <glm/gtc/type\_ptr.hpp>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <glm/gtc/matrix\_transform.hpp>}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{namespace\ }Solaris\ \{}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }Model\ :\ \textcolor{keyword}{public}\ RenderObject\ \{}
+\DoxyCodeLine{00015\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00016\ \ \ \ \ glm::vec3\ position;}
+\DoxyCodeLine{00017\ \ \ \ \ glm::mat4\ model\_transform;}
+\DoxyCodeLine{00018\ \ \ \ \ \doxymbox{\hyperlink{structSolaris_1_1CastedResource}{CastedResource<float>}}\ mesh\_data;}
+\DoxyCodeLine{00019\ \ \ \ \ \doxymbox{\hyperlink{structSolaris_1_1CastedResource}{CastedResource<unsigned\ char>}}\ texture\_data;}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{bool}\ transform\_updated\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ meshVBO;}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ modelVAO;}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ texture;}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ vertices\_count;}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00027\ \ \ \ \ Model(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structSolaris_1_1CastedResource}{CastedResource<float>}}\&\ mesh\_data,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structSolaris_1_1CastedResource}{CastedResource<unsigned\ char>}}\&\ texture\_data,}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ glm::vec3\ initial\_pos\ =\ \{0.0f,\ 0.0f,\ 0.0f\});}
+\DoxyCodeLine{00029\ \ \ \ \ \string~Model();}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{void}\ AttachRender(std::function<\textcolor{keywordtype}{bool}(Model\&)>\ event);}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{void}\ AttachShouldRender(std::function<\textcolor{keywordtype}{bool}(Model\&)>\ event);}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{void}\ AttachTick(std::function<\textcolor{keywordtype}{bool}(Model\&)>\ event);}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{void}\ AttachConstruct(std::function<\textcolor{keywordtype}{bool}(Model\&)>\ event);}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{void}\ AttachDestroy(std::function<\textcolor{keywordtype}{bool}(Model\&)>\ event);}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{bool}\ Render(\doxymbox{\hyperlink{classSolaris_1_1Renderer}{Renderer}}\&);}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{bool}\ Construct(\doxymbox{\hyperlink{classSolaris_1_1Renderer}{Renderer}}\&);}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{bool}\ Destroy(\doxymbox{\hyperlink{classSolaris_1_1Renderer}{Renderer}}\&);}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{comment}{//\ getters}}
+\DoxyCodeLine{00042\ \ \ \ \ glm::vec3\ GetPosition();}
+\DoxyCodeLine{00043\ \ \ \ \ glm::mat4\ GetTransform();}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{comment}{//\ setters}}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{void}\ SetPosition(glm::vec3\ to);}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{void}\ Translate(glm::vec3\ by);}
+\DoxyCodeLine{00048\ \};}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ SOLARIS\_MODEL\_OBJECT\_H}}
+
+\end{DoxyCode}
