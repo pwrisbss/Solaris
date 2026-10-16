@@ -1,9 +1,9 @@
 cmake_minimum_required(VERSION 3.23)
-project(VSEchelon)
+project(Solaris)
 
 set(CMAKE_CXX_FLAGS "-O2")
 
-# The Echelon Library
+# The Solaris Library
 add_library(${PROJECT_NAME})
 
 target_sources(${PROJECT_NAME}
@@ -19,7 +19,7 @@ if(CXX_DEBUG)
 	set(CMAKE_CXX_FLAGS "-g")
 endif(CXX_DEBUG)
 
-# Echelon Components
+# Solaris Components
 add_subdirectory(src/Shader)
 add_subdirectory(src/Renderer)
 add_subdirectory(src/ResourceMan)
