@@ -28,12 +28,6 @@ public:
 		glm::vec3 initial_pos = {0.0f, 0.0f, 0.0f});
 	~Model();
 
-	void AttachRender(std::function<bool(Model&)> event);
-	void AttachShouldRender(std::function<bool(Model&)> event);
-	void AttachTick(std::function<bool(Model&)> event);
-	void AttachConstruct(std::function<bool(Model&)> event);
-	void AttachDestroy(std::function<bool(Model&)> event);
-
 	bool Render(Renderer&);
 	bool Construct(Renderer&);
 	bool Destroy(Renderer&);
