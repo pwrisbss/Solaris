@@ -37,6 +37,7 @@ bool Model::Construct(Renderer&) {
 bool Model::Render(Renderer& renderer) {
 	auto shader = renderer.GetShaderPtr();
 	shader->Use();
+
 	// send transform data
 	if (this->transform_updated) {
 		unsigned program = shader->GetShaderProg();
