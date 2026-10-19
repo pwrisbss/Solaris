@@ -18,6 +18,7 @@ bool Model::Construct(Renderer&) {
 	glGenVertexArrays(1, &this->modelVAO);
 	glBindVertexArray(this->modelVAO);
 
+	// mesh
 	glGenBuffers(1, &this->meshVBO);
 	glBindBuffer(GL_ARRAY_BUFFER, this->meshVBO);
 	glBufferData(GL_ARRAY_BUFFER, this->mesh_data.len * sizeof(float), this->mesh_data.pdata, GL_STATIC_DRAW);
@@ -25,7 +26,12 @@ bool Model::Construct(Renderer&) {
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
 	glEnableVertexAttribArray(0);
 
-	// TODO add texture stuff
+	// texture
+	// if (this->texture_data != NoTexture) {
+	// 	glGenTextures(1, &this->texture);
+	// 	glBindTexture(GL_TEXTURE_2D, this->texture);
+		
+	// }
 
 	this->vertices_count = this->mesh_data.len / 3;
 

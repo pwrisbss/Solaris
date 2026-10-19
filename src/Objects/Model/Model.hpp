@@ -11,6 +11,7 @@
 
 namespace Solaris {
 
+const CastedResource<unsigned char> NoTexture = {0, nullptr};
 const glm::vec3 XAxis(1.0f, 0.0f, 0.0f);
 const glm::vec3 YAxis(0.0f, 1.0f, 0.0f);
 const glm::vec3 ZAxis(0.0f, 0.0f, 1.0f);

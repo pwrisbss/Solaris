@@ -50,10 +50,6 @@ float cube_mesh[] = {
     -0.5f,  0.5f, -0.5f,//  0.0f, 1.0f
 };
 
-unsigned char texture_data[] = {
-	0, 0, 0
-};
-
 const char vertex_shader[] = R"(
 #version 330 core
 
@@ -91,10 +87,8 @@ int main() {
 	});
 
 	unsigned mesh_resource_key = resman.OwnResource(cube_mesh, sizeof(cube_mesh));
-	unsigned texture_resource_key = resman.OwnResource(texture_data, sizeof(texture_data));
 	auto mesh_resource = resman.FetchCasted<float>(mesh_resource_key);
-	auto texture_resource = resman.FetchCasted<unsigned char>(texture_resource_key);
-	SOL::Model model(mesh_resource, texture_resource);
+	SOL::Model model(mesh_resource, SOL::NoTexture);
 
 	render.AttachShader(shader);
 	render.AttachRenderObject(&model);
