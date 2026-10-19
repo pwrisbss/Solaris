@@ -12,7 +12,11 @@ target_sources(${PROJECT_NAME}
 		BASE_DIRS include/
 )
 
-target_link_libraries(${PROJECT_NAME} glfw3 GL X11 pthread Xi Xrandr dl)
+target_link_libraries(${PROJECT_NAME} glfw3 GL)
+
+if(UNIX)
+	target_link_libraries(${PROJECT_NAME} X11 pthread Xi Xrandr dl)
+endif(UNIX)
 
 # Debugging
 if(CXX_DEBUG)
