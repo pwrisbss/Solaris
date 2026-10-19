@@ -8,7 +8,9 @@ Model::Model(const CastedResource<float>& mesh_data, const CastedResource<unsign
 	mesh_data(mesh_data),
 	texture_data(texture_data),
 	model_transform(1.0f),
-	position(initial_pos) {
+	position(initial_pos),
+	scale(1.0f),
+	rotx(0), roty(0), rotz(0) {
 	model_transform = glm::translate(model_transform, this->position);
 }
 
@@ -77,7 +79,95 @@ glm::mat4 Model::GetTransform() {
 void Model::SetPosition(glm::vec3 to) {
 	this->position = to;
 	this->model_transform = glm::translate(glm::mat4(1.0f), this->position);
+
+	// re-apply previous transformations
+	this->model_transform = glm::rotate(this->model_transform, this->rotx, XAxis);
+	this->model_transform = glm::rotate(this->model_transform, this->roty, YAxis);
+	this->model_transform = glm::rotate(this->model_transform, this->rotz, ZAxis);
+	this->model_transform = glm::scale(this->model_transform, this->scale);
+
 	this->transform_updated = true;
+}
+
+void Model::SetRotation(float x, float y, float z) {
+	this->rotx = x;
+	this->roty = y;
+	this->rotz = z;
+	this->model_transform = glm::rotate(glm::mat4(1.0f), this->rotx, XAxis);
+	this->model_transform = glm::rotate(glm::mat4(1.0f), this->roty, YAxis);
+	this->model_transform = glm::rotate(glm::mat4(1.0f), this->rotz, ZAxis);
+
+	// re-apply previous transformations
+	this->model_transform = glm::translate(this->model_transform, this->position);
+	this->model_transform = glm::scale(this->model_transform, this->scale);
+
+	this->transform_updated = true;
+}
+
+void Model::SetScale(glm::vec3 to) {
+	this->scale = to;
+	this->model_transform = glm::scale(glm::mat4(1.0f), this->scale);
+
+	// re-apply previous transformations
+	this->model_transform = glm::rotate(this->model_transform, this->rotx, XAxis);
+	this->model_transform = glm::rotate(this->model_transform, this->roty, YAxis);
+	this->model_transform = glm::rotate(this->model_transform, this->rotz, ZAxis);
+	this->model_transform = glm::translate(this->model_transform, this->position);
+
+	this->transform_updated = true;
+}
+
+void Model::Translate(glm::vec3 by) {
+	this->position += by;
+	this->model_transform = glm::translate(this->model_transform, by);
+	this->transform_updated = true;
+}
+
+void Model::Rotate(float x, float y, float z) {
+	this->rotx += x;
+	this->roty += y;
+	this->rotz += z;
+	this->model_transform = glm::rotate(this->model_transform, x, XAxis);
+	this->model_transform = glm::rotate(this->model_transform, y, YAxis);
+	this->model_transform = glm::rotate(this->model_transform, z, ZAxis);
+	this->transform_updated = true;
+}
+
+void Model::Rotate(float value, glm::vec3 axis) {
+	if (axis == XAxis) {
+		this->rotx += value;
+	} else if (axis == YAxis) {
+		this->roty += value;
+	} else if (axis == ZAxis) {
+		this->rotz += value;
+	} else {
+		std::cout << "W: Rotating in an unknown axis! Expect unpredicted behavior.\n";
+	}
+
+	this->model_transform = glm::rotate(this->model_transform, value, axis);
+	this->transform_updated = true;
+}
+
+void Model::Scale(glm::vec3 by) {
+	this->scale *= by;
+	this->model_transform = glm::scale(this->model_transform, by);
+	this->transform_updated = true;
+}
+
+glm::vec3 Model::GetScale() {
+	return this->scale;
+}
+
+float Model::GetXRotation() {
+	return this->rotx;
+}
+
+float Model::GetYRotation() {
+	return this->roty;
+}
+
+float Model::GetZRotation() {
+	return this->rotz;
 }
 
 }

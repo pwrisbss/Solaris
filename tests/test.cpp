@@ -105,6 +105,9 @@ int main() {
 
     while (!render.GetShouldClose()) {
 		render.Tick();
+		model.Rotate(0.01f, SOL::XAxis);
+		model.SetPosition({ std::sin(glfwGetTime()), 0.0f, 0.0f });
+		// model.Translate({ 0.01f, 0.0f, 0.0f });
 	}
 
 	return 0;
