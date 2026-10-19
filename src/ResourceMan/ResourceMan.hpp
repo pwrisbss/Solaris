@@ -13,12 +13,28 @@ namespace Solaris {
 struct Resource {
 	unsigned long size;
 	void * pdata;
+	bool operator==(const Resource& other) {
+		return (this->size  == other.size) &&
+		       (this->pdata == other.pdata);
+	};
+	bool operator!=(const Resource& other) {
+		return (this->size  != other.size) ||
+		       (this->pdata != other.pdata);
+	};
 };
 
 template<typename _data_type>
 struct CastedResource {
 	unsigned long len;
 	_data_type * pdata;
+	bool operator==(const CastedResource<_data_type>& other) {
+		return (this->len   == other.len) &&
+		       (this->pdata == other.pdata);
+	};
+	bool operator!=(const CastedResource<_data_type>& other) {
+		return (this->len   != other.len) ||
+		       (this->pdata != other.pdata);
+	};
 };
 
 template<typename _cast_type> CastedResource<_cast_type> CastResource(Resource& resource) {
