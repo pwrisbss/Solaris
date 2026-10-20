@@ -17,4 +17,4 @@ jobs:
     steps:
     # Runs a single command using the runners shell
     - name: Install GLFW Deps
-      run: apt-get install libglfw3 libglfw3-dev build-essential libgl1-mesa-dev libglu1-mesa-dev mesa-utils
+      run: sudo apt-get install libglfw3 libglfw3-dev build-essential libgl1-mesa-dev libglu1-mesa-dev mesa-utils
