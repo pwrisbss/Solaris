@@ -4,7 +4,7 @@ namespace Solaris {
 
 Camera::Camera(CameraProperties properties) :
 	RenderObject(),
-	position(properties.initial_pos),
+	position(properties.position),
 	up(properties.up_vector),
 	cam_front(properties.front_vector),
 	fov(properties.fov) {
@@ -36,6 +36,15 @@ void Camera::Attach() {
 
 void Camera::Detach() {
 	this->renderable = false;
+}
+
+void Camera::ApplyProperties(CameraProperties properties) {
+	this->position = properties.position;
+	this->up = properties.up_vector;
+	this->cam_front = properties.front_vector;
+	this->fov = properties.fov;
+	this->looking_at = properties.looking_at;
+	this->camera_updated = true;
 }
 
 bool Camera::Destroy(Renderer&) {

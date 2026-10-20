@@ -80,7 +80,7 @@ int main() {
 	SOL::ResourceMan resman;
 	SOL::Shader shader(vertex_shader, fragment_shader);
 	SOL::Camera cam(SOL::CameraProperties {
-		.initial_pos = {-1.0f, 1.0f, 1.0f},
+		.position = {-1.0f, 1.0f, 1.0f},
 		.looking_at = {0.0f, 0.0f, 0.0f},
 		.fov = glm::radians(60.0f),
 		.aspect_ratio = 800.0f / 600.0f,
