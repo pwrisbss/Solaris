@@ -11,7 +11,7 @@
 namespace Solaris {
 
 typedef struct CameraProperties {
-	glm::vec3 initial_pos = {0.0f, 0.0f, 0.0f};
+	glm::vec3 position = {0.0f, 0.0f, 0.0f};
 	glm::vec3 up_vector = {0.0f, 1.0f, 0.0f};
 	glm::vec3 front_vector;
 	glm::vec3 looking_at;
