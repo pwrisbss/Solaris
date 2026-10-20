@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.23)
 project(Solaris)
 
+option(BUILD_TESTS "Build test binaries" NO)
+option(CXX_DEBUG "Enable the debug flag (-g) for compiler" NO)
 set(CMAKE_CXX_FLAGS "-O2")
 
 # The Solaris Library
