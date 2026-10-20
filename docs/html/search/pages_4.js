@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['polymorphism_0',['Polymorphism',['../da/d0e/renderobject.html#renderobject-definition-polymorphism',1,'']]]
+  ['management_0',['Resource Management',['../dc/d2f/resourceman.html',1,'']]],
+  ['manager_1',['The Resource Manager',['../dc/d2f/resourceman.html#resourceman-the-resource-manager',1,'']]]
 ];

@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['setglobaltransform_0',['SetGlobalTransform',['../d3/d7b/classSolaris_1_1Renderer.html#a4be7fbe5a1924959502c9c42eb2579e2',1,'Solaris::Renderer']]],
-  ['setshouldclose_1',['SetShouldClose',['../d3/d7b/classSolaris_1_1Renderer.html#a87f07b0b889059f678d4dbedba0a712f',1,'Solaris::Renderer']]],
-  ['shader_2',['Shader',['../de/d74/classSolaris_1_1Shader.html#a61cdd9dc2791f47b5edfda420a8b4d4e',1,'Solaris::Shader']]]
+  ['operator_21_3d_0',['operator!=',['../d5/d8d/structSolaris_1_1Resource.html#af069c96d9e354a20d39e8ae5be7cc1eb',1,'Solaris::Resource::operator!=()'],['../df/d2c/structSolaris_1_1CastedResource.html#a70877a5e06783199c163de16f81fdf08',1,'Solaris::CastedResource::operator!=()']]],
+  ['operator_3d_3d_1',['operator==',['../d5/d8d/structSolaris_1_1Resource.html#add07d2bd21a747ab7ead67940e0d12d5',1,'Solaris::Resource::operator==()'],['../df/d2c/structSolaris_1_1CastedResource.html#a42f24598fc2bb41750c1c1307d7d2148',1,'Solaris::CastedResource::operator==()']]]
 ];

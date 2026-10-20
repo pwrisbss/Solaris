@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['defining_20render_20objects_0',['Defining Render Objects',['../da/d0e/renderobject.html#renderobject-definition',1,'']]]
+  ['castedresource_20type_0',['The CastedResource Type',['../dc/d2f/resourceman.html#resourceman-typename-castedresource',1,'']]],
+  ['casting_20resources_1',['Casting Resources',['../dc/d2f/resourceman.html#resourceman-casting-resources',1,'']]]
 ];

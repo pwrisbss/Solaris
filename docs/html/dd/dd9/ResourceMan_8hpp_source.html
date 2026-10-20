@@ -114,84 +114,127 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('dd/dd9/Resourc
   <div class="headertitle"><div class="title">ResourceMan.hpp</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// resource manager</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#ifndef SOLARIS_RESOURCEMAN_H</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#define SOLARIS_RESOURCEMAN_H</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;cstdint&gt;</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;fstream&gt;</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;unordered_map&gt;</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">namespace </span>Solaris {</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="foldopen" id="foldopen00013" data-start="{" data-end="};">
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="../../d5/d8d/structSolaris_1_1Resource.html">   13</a></span><span class="keyword">struct </span><a class="code hl_struct" href="../../d5/d8d/structSolaris_1_1Resource.html">Resource</a> {</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> size;</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keywordtype">void</span> * pdata;</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>};</div>
+<a href="../../dd/dd9/ResourceMan_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span></div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="preprocessor">#ifndef SOLARIS_RESOURCEMAN_H</span></div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="preprocessor">#define SOLARIS_RESOURCEMAN_H</span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="preprocessor">#include &lt;cstdint&gt;</span></div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span><span class="preprocessor">#include &lt;fstream&gt;</span></div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="preprocessor">#include &lt;unordered_map&gt;</span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span><span class="keyword">namespace </span>Solaris {</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span></div>
+<div class="foldopen" id="foldopen00125" data-start="{" data-end="};">
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno"><a class="line" href="../../d5/d8d/structSolaris_1_1Resource.html">  125</a></span><span class="keyword">struct </span><a class="code hl_struct" href="../../d5/d8d/structSolaris_1_1Resource.html">Resource</a> {</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno"><a class="line" href="../../d5/d8d/structSolaris_1_1Resource.html#aacea860ada864b30e4c0acc3379c971b">  130</a></span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <a class="code hl_variable" href="../../d5/d8d/structSolaris_1_1Resource.html#aacea860ada864b30e4c0acc3379c971b">size</a>;</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span></div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno"><a class="line" href="../../d5/d8d/structSolaris_1_1Resource.html#a3db9883e15e21d1bace7037f514d5b0d">  136</a></span>    <span class="keywordtype">void</span> * <a class="code hl_variable" href="../../d5/d8d/structSolaris_1_1Resource.html#a3db9883e15e21d1bace7037f514d5b0d">pdata</a>;</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span></div>
+<div class="foldopen" id="foldopen00145" data-start="{" data-end="}">
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno"><a class="line" href="../../d5/d8d/structSolaris_1_1Resource.html#add07d2bd21a747ab7ead67940e0d12d5">  145</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d5/d8d/structSolaris_1_1Resource.html#add07d2bd21a747ab7ead67940e0d12d5">operator==</a>(<span class="keyword">const</span> <a class="code hl_struct" href="../../d5/d8d/structSolaris_1_1Resource.html">Resource</a>&amp; other) {</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>        <span class="keywordflow">return</span> (this-&gt;size  == other.<a class="code hl_variable" href="../../d5/d8d/structSolaris_1_1Resource.html#aacea860ada864b30e4c0acc3379c971b">size</a>) &amp;&amp;</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>               (this-&gt;pdata == other.<a class="code hl_variable" href="../../d5/d8d/structSolaris_1_1Resource.html#a3db9883e15e21d1bace7037f514d5b0d">pdata</a>);</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    };</div>
 </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> _data_type&gt;</div>
-<div class="foldopen" id="foldopen00019" data-start="{" data-end="};">
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="../../df/d2c/structSolaris_1_1CastedResource.html">   19</a></span><span class="keyword">struct </span><a class="code hl_struct" href="../../df/d2c/structSolaris_1_1CastedResource.html">CastedResource</a> {</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> len;</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    _data_type * pdata;</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>};</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span></div>
+<div class="foldopen" id="foldopen00159" data-start="{" data-end="}">
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno"><a class="line" href="../../d5/d8d/structSolaris_1_1Resource.html#af069c96d9e354a20d39e8ae5be7cc1eb">  159</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d5/d8d/structSolaris_1_1Resource.html#af069c96d9e354a20d39e8ae5be7cc1eb">operator!=</a>(<span class="keyword">const</span> <a class="code hl_struct" href="../../d5/d8d/structSolaris_1_1Resource.html">Resource</a>&amp; other) {</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>        <span class="keywordflow">return</span> (this-&gt;size  != other.<a class="code hl_variable" href="../../d5/d8d/structSolaris_1_1Resource.html#aacea860ada864b30e4c0acc3379c971b">size</a>) ||</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>               (this-&gt;pdata != other.<a class="code hl_variable" href="../../d5/d8d/structSolaris_1_1Resource.html#a3db9883e15e21d1bace7037f514d5b0d">pdata</a>);</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>    };</div>
 </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> _cast_type&gt; <a class="code hl_struct" href="../../df/d2c/structSolaris_1_1CastedResource.html">CastedResource&lt;_cast_type&gt;</a> CastResource(<a class="code hl_struct" href="../../d5/d8d/structSolaris_1_1Resource.html">Resource</a>&amp; resource) {</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <a class="code hl_struct" href="../../df/d2c/structSolaris_1_1CastedResource.html">CastedResource&lt;_cast_type&gt;</a> casted;</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keywordtype">unsigned</span> type_size = <span class="keyword">sizeof</span>(_cast_type);</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keywordtype">unsigned</span> resource_size;</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="comment">// TODO add error handling</span></div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="comment">// for when resource_size isnt divisible by type_size</span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    resource_size = resource.size;</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    casted.len = resource_size / type_size;</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    casted.pdata = (_cast_type*)resource.pdata;</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keywordflow">return</span> casted;</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>}</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="foldopen" id="foldopen00039" data-start="{" data-end="};">
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="../../d2/d39/classSolaris_1_1ResourceMan.html">   39</a></span><span class="keyword">class </span>ResourceMan {</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="keywordtype">unsigned</span> next_id;</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="keywordtype">unsigned</span> NewResource();</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>std::unordered_map&lt;unsigned, Resource&gt; resources;</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    ResourceMan();</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    ~ResourceMan();</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <a class="code hl_struct" href="../../d5/d8d/structSolaris_1_1Resource.html">Resource</a> FetchResource(<span class="keywordtype">unsigned</span> <span class="keywordtype">id</span>);</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keywordtype">unsigned</span> LoadResource(std::string file_location, <span class="keywordtype">bool</span> load_as_string = <span class="keyword">false</span>);</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keywordtype">unsigned</span> LoadResource(std::string vse_container_location, uint64_t offset); <span class="comment">// NOT IMPLEMENTED</span></div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keywordtype">unsigned</span> OwnResource(<span class="keywordtype">void</span> * resource_address, <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> resource_size);</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keywordtype">void</span> DestroyResource(<span class="keywordtype">unsigned</span> <span class="keywordtype">id</span>, <span class="keywordtype">bool</span> unload = <span class="keyword">true</span>);</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> _cast_type&gt; <a class="code hl_struct" href="../../df/d2c/structSolaris_1_1CastedResource.html">CastedResource&lt;_cast_type&gt;</a></div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    FetchCasted(<span class="keywordtype">unsigned</span> <span class="keywordtype">id</span>) { <span class="keywordflow">return</span> CastResource&lt;_cast_type&gt;(this-&gt;resources[<span class="keywordtype">id</span>]); };</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>};</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>};</div>
 </div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>}</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="preprocessor">#endif </span><span class="comment">// SOLARIS_RESOURCEMAN_H</span></div>
-<div class="ttc" id="astructSolaris_1_1CastedResource_html"><div class="ttname"><a href="../../df/d2c/structSolaris_1_1CastedResource.html">Solaris::CastedResource</a></div><div class="ttdef"><b>Definition</b> ResourceMan.hpp:19</div></div>
-<div class="ttc" id="astructSolaris_1_1Resource_html"><div class="ttname"><a href="../../d5/d8d/structSolaris_1_1Resource.html">Solaris::Resource</a></div><div class="ttdef"><b>Definition</b> ResourceMan.hpp:13</div></div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span></div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> _data_type&gt;</div>
+<div class="foldopen" id="foldopen00177" data-start="{" data-end="};">
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno"><a class="line" href="../../df/d2c/structSolaris_1_1CastedResource.html">  177</a></span><span class="keyword">struct </span><a class="code hl_struct" href="../../df/d2c/structSolaris_1_1CastedResource.html">CastedResource</a> {</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno"><a class="line" href="../../df/d2c/structSolaris_1_1CastedResource.html#a7ddb3c50a4398659383613b17db83c26">  183</a></span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <a class="code hl_variable" href="../../df/d2c/structSolaris_1_1CastedResource.html#a7ddb3c50a4398659383613b17db83c26">len</a>;</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span></div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno"><a class="line" href="../../df/d2c/structSolaris_1_1CastedResource.html#a11a15c6f2d0d9a40a3a600ceae729967">  189</a></span>    _data_type * <a class="code hl_variable" href="../../df/d2c/structSolaris_1_1CastedResource.html#a11a15c6f2d0d9a40a3a600ceae729967">pdata</a>;</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span></div>
+<div class="foldopen" id="foldopen00197" data-start="{" data-end="}">
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno"><a class="line" href="../../df/d2c/structSolaris_1_1CastedResource.html#a42f24598fc2bb41750c1c1307d7d2148">  197</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="../../df/d2c/structSolaris_1_1CastedResource.html#a42f24598fc2bb41750c1c1307d7d2148">operator==</a>(<span class="keyword">const</span> <a class="code hl_struct" href="../../df/d2c/structSolaris_1_1CastedResource.html">CastedResource&lt;_data_type&gt;</a>&amp; other) {</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>        <span class="keywordflow">return</span> (this-&gt;len   == other.<a class="code hl_variable" href="../../df/d2c/structSolaris_1_1CastedResource.html#a7ddb3c50a4398659383613b17db83c26">len</a>) &amp;&amp;</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>               (this-&gt;pdata == other.<a class="code hl_variable" href="../../df/d2c/structSolaris_1_1CastedResource.html#a11a15c6f2d0d9a40a3a600ceae729967">pdata</a>);</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>    };</div>
+</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span></div>
+<div class="foldopen" id="foldopen00208" data-start="{" data-end="}">
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno"><a class="line" href="../../df/d2c/structSolaris_1_1CastedResource.html#a70877a5e06783199c163de16f81fdf08">  208</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="../../df/d2c/structSolaris_1_1CastedResource.html#a70877a5e06783199c163de16f81fdf08">operator!=</a>(<span class="keyword">const</span> <a class="code hl_struct" href="../../df/d2c/structSolaris_1_1CastedResource.html">CastedResource&lt;_data_type&gt;</a>&amp; other) {</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>        <span class="keywordflow">return</span> (this-&gt;len   != other.<a class="code hl_variable" href="../../df/d2c/structSolaris_1_1CastedResource.html#a7ddb3c50a4398659383613b17db83c26">len</a>) ||</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>               (this-&gt;pdata != other.<a class="code hl_variable" href="../../df/d2c/structSolaris_1_1CastedResource.html#a11a15c6f2d0d9a40a3a600ceae729967">pdata</a>);</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>    };</div>
+</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>};</div>
+</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span></div>
+<div class="foldopen" id="foldopen00224" data-start="{" data-end="}">
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno"><a class="line" href="../../dd/dd9/ResourceMan_8hpp.html#a60230f3d6f22a8ff097ff764af582a6a">  224</a></span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> _cast_type&gt; <a class="code hl_struct" href="../../df/d2c/structSolaris_1_1CastedResource.html">CastedResource&lt;_cast_type&gt;</a> <a class="code hl_function" href="../../dd/dd9/ResourceMan_8hpp.html#a60230f3d6f22a8ff097ff764af582a6a">CastResource</a>(<a class="code hl_struct" href="../../d5/d8d/structSolaris_1_1Resource.html">Resource</a>&amp; resource) {</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>    <a class="code hl_struct" href="../../df/d2c/structSolaris_1_1CastedResource.html">CastedResource&lt;_cast_type&gt;</a> casted;</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>    <span class="keywordtype">unsigned</span> type_size = <span class="keyword">sizeof</span>(_cast_type);</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>    <span class="keywordtype">unsigned</span> resource_size;</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span> </div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>    <span class="comment">// TODO add error handling</span></div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>    <span class="comment">// for when resource_size isnt divisible by type_size</span></div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span> </div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>    resource_size = resource.<a class="code hl_variable" href="../../d5/d8d/structSolaris_1_1Resource.html#aacea860ada864b30e4c0acc3379c971b">size</a>;</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>    casted.<a class="code hl_variable" href="../../df/d2c/structSolaris_1_1CastedResource.html#a7ddb3c50a4398659383613b17db83c26">len</a> = resource_size / type_size;</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>    casted.<a class="code hl_variable" href="../../df/d2c/structSolaris_1_1CastedResource.html#a11a15c6f2d0d9a40a3a600ceae729967">pdata</a> = (_cast_type*)resource.<a class="code hl_variable" href="../../d5/d8d/structSolaris_1_1Resource.html#a3db9883e15e21d1bace7037f514d5b0d">pdata</a>;</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span> </div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>    <span class="keywordflow">return</span> casted;</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>}</div>
+</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span></div>
+<div class="foldopen" id="foldopen00247" data-start="{" data-end="};">
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno"><a class="line" href="../../d2/d39/classSolaris_1_1ResourceMan.html">  247</a></span><span class="keyword">class </span>ResourceMan {</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>    <span class="keywordtype">unsigned</span> next_id;</div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>    <span class="keywordtype">unsigned</span> NewResource();</div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span> </div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno"><a class="line" href="../../d2/d39/classSolaris_1_1ResourceMan.html#a47e9fc6b17ce8f822c462d52339c4634">  257</a></span>    std::unordered_map&lt;unsigned, Resource&gt; <a class="code hl_variable" href="../../d2/d39/classSolaris_1_1ResourceMan.html#a47e9fc6b17ce8f822c462d52339c4634">resources</a>;</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>    ResourceMan();</div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>    ~ResourceMan();</div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span> </div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>    <a class="code hl_struct" href="../../d5/d8d/structSolaris_1_1Resource.html">Resource</a> FetchResource(<span class="keywordtype">unsigned</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>    <span class="keywordtype">unsigned</span> LoadResource(std::string file_location, <span class="keywordtype">bool</span> load_as_string = <span class="keyword">false</span>);</div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>    <span class="keywordtype">unsigned</span> LoadResource(std::string vse_container_location, uint64_t offset); <span class="comment">// NOT IMPLEMENTED</span></div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>    <span class="keywordtype">unsigned</span> OwnResource(<span class="keywordtype">void</span> * resource_address, <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> resource_size);</div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>    <span class="keywordtype">void</span> DestroyResource(<span class="keywordtype">unsigned</span> <span class="keywordtype">id</span>, <span class="keywordtype">bool</span> unload = <span class="keyword">true</span>);</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span> </div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span> </div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span> </div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> _cast_type&gt; <a class="code hl_struct" href="../../df/d2c/structSolaris_1_1CastedResource.html">CastedResource&lt;_cast_type&gt;</a></div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>    FetchCasted(<span class="keywordtype">unsigned</span> <span class="keywordtype">id</span>) { <span class="keywordflow">return</span> <a class="code hl_function" href="../../dd/dd9/ResourceMan_8hpp.html#a60230f3d6f22a8ff097ff764af582a6a">CastResource&lt;_cast_type&gt;</a>(this-&gt;resources[<span class="keywordtype">id</span>]); };</div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>};</div>
+</div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span> </div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>}</div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span> </div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span><span class="preprocessor">#endif </span><span class="comment">// SOLARIS_RESOURCEMAN_H</span></div>
+<div class="ttc" id="aResourceMan_8hpp_html_a60230f3d6f22a8ff097ff764af582a6a"><div class="ttname"><a href="../../dd/dd9/ResourceMan_8hpp.html#a60230f3d6f22a8ff097ff764af582a6a">Solaris::CastResource</a></div><div class="ttdeci">CastedResource&lt; _cast_type &gt; CastResource(Resource &amp;resource)</div><div class="ttdoc">Casts a Resource object to a CastedResource&lt;_cast_type&gt;.</div><div class="ttdef"><b>Definition</b> ResourceMan.hpp:224</div></div>
+<div class="ttc" id="aclassSolaris_1_1ResourceMan_html_a47e9fc6b17ce8f822c462d52339c4634"><div class="ttname"><a href="../../d2/d39/classSolaris_1_1ResourceMan.html#a47e9fc6b17ce8f822c462d52339c4634">Solaris::ResourceMan::resources</a></div><div class="ttdeci">std::unordered_map&lt; unsigned, Resource &gt; resources</div><div class="ttdoc">Hashmap of the resources managed by this ResourceMan.</div><div class="ttdef"><b>Definition</b> ResourceMan.hpp:257</div></div>
+<div class="ttc" id="astructSolaris_1_1CastedResource_html"><div class="ttname"><a href="../../df/d2c/structSolaris_1_1CastedResource.html">Solaris::CastedResource</a></div><div class="ttdoc">Holds information about a specific resource with known data type.</div><div class="ttdef"><b>Definition</b> ResourceMan.hpp:177</div></div>
+<div class="ttc" id="astructSolaris_1_1CastedResource_html_a11a15c6f2d0d9a40a3a600ceae729967"><div class="ttname"><a href="../../df/d2c/structSolaris_1_1CastedResource.html#a11a15c6f2d0d9a40a3a600ceae729967">Solaris::CastedResource::pdata</a></div><div class="ttdeci">_data_type * pdata</div><div class="ttdoc">Pointer to resource data.</div><div class="ttdef"><b>Definition</b> ResourceMan.hpp:189</div></div>
+<div class="ttc" id="astructSolaris_1_1CastedResource_html_a42f24598fc2bb41750c1c1307d7d2148"><div class="ttname"><a href="../../df/d2c/structSolaris_1_1CastedResource.html#a42f24598fc2bb41750c1c1307d7d2148">Solaris::CastedResource::operator==</a></div><div class="ttdeci">bool operator==(const CastedResource&lt; _data_type &gt; &amp;other)</div><div class="ttdoc">Same as Resource::operator==(), except accepts a CastedResource of the same type.</div><div class="ttdef"><b>Definition</b> ResourceMan.hpp:197</div></div>
+<div class="ttc" id="astructSolaris_1_1CastedResource_html_a70877a5e06783199c163de16f81fdf08"><div class="ttname"><a href="../../df/d2c/structSolaris_1_1CastedResource.html#a70877a5e06783199c163de16f81fdf08">Solaris::CastedResource::operator!=</a></div><div class="ttdeci">bool operator!=(const CastedResource&lt; _data_type &gt; &amp;other)</div><div class="ttdoc">Same as Resource::operator!=(), except accepts a CastedResource of the same type.</div><div class="ttdef"><b>Definition</b> ResourceMan.hpp:208</div></div>
+<div class="ttc" id="astructSolaris_1_1CastedResource_html_a7ddb3c50a4398659383613b17db83c26"><div class="ttname"><a href="../../df/d2c/structSolaris_1_1CastedResource.html#a7ddb3c50a4398659383613b17db83c26">Solaris::CastedResource::len</a></div><div class="ttdeci">unsigned long len</div><div class="ttdoc">Length of the resource data. i.e., number of _data_type elements in this specific resource....</div><div class="ttdef"><b>Definition</b> ResourceMan.hpp:183</div></div>
+<div class="ttc" id="astructSolaris_1_1Resource_html"><div class="ttname"><a href="../../d5/d8d/structSolaris_1_1Resource.html">Solaris::Resource</a></div><div class="ttdoc">Holds information about a specific resource.</div><div class="ttdef"><b>Definition</b> ResourceMan.hpp:125</div></div>
+<div class="ttc" id="astructSolaris_1_1Resource_html_a3db9883e15e21d1bace7037f514d5b0d"><div class="ttname"><a href="../../d5/d8d/structSolaris_1_1Resource.html#a3db9883e15e21d1bace7037f514d5b0d">Solaris::Resource::pdata</a></div><div class="ttdeci">void * pdata</div><div class="ttdoc">Pointer to resource data.</div><div class="ttdef"><b>Definition</b> ResourceMan.hpp:136</div></div>
+<div class="ttc" id="astructSolaris_1_1Resource_html_aacea860ada864b30e4c0acc3379c971b"><div class="ttname"><a href="../../d5/d8d/structSolaris_1_1Resource.html#aacea860ada864b30e4c0acc3379c971b">Solaris::Resource::size</a></div><div class="ttdeci">unsigned long size</div><div class="ttdoc">Size of the resource data in bytes.</div><div class="ttdef"><b>Definition</b> ResourceMan.hpp:130</div></div>
+<div class="ttc" id="astructSolaris_1_1Resource_html_add07d2bd21a747ab7ead67940e0d12d5"><div class="ttname"><a href="../../d5/d8d/structSolaris_1_1Resource.html#add07d2bd21a747ab7ead67940e0d12d5">Solaris::Resource::operator==</a></div><div class="ttdeci">bool operator==(const Resource &amp;other)</div><div class="ttdoc">Check if the other Resource points to the same memory block with the same size as this Resource.</div><div class="ttdef"><b>Definition</b> ResourceMan.hpp:145</div></div>
+<div class="ttc" id="astructSolaris_1_1Resource_html_af069c96d9e354a20d39e8ae5be7cc1eb"><div class="ttname"><a href="../../d5/d8d/structSolaris_1_1Resource.html#af069c96d9e354a20d39e8ae5be7cc1eb">Solaris::Resource::operator!=</a></div><div class="ttdeci">bool operator!=(const Resource &amp;other)</div><div class="ttdoc">Check if the other Resource doesn&#39;t point to the same memory block and/or isn&#39;t the same size as this...</div><div class="ttdef"><b>Definition</b> ResourceMan.hpp:159</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><b>src</b></li><li class="navelem"><b>ResourceMan</b></li><li class="navelem"><b>ResourceMan.hpp</b></li>
+    <li class="navelem"><b>src</b></li><li class="navelem"><b>ResourceMan</b></li><li class="navelem"><a href="../../dd/dd9/ResourceMan_8hpp.html">ResourceMan.hpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
   </ul>
 </div>

@@ -7,5 +7,11 @@ var searchData=
   ['renderobject_4',['RenderObject',['../da/d5d/classSolaris_1_1RenderObject.html',1,'Solaris']]],
   ['renderobjects_2ehpp_5',['RenderObjects.hpp',['../d6/d9f/RenderObjects_8hpp.html',1,'']]],
   ['resource_6',['Resource',['../d5/d8d/structSolaris_1_1Resource.html',1,'Solaris']]],
-  ['resourceman_7',['ResourceMan',['../d2/d39/classSolaris_1_1ResourceMan.html',1,'Solaris']]]
+  ['resource_20management_7',['Resource Management',['../dc/d2f/resourceman.html',1,'']]],
+  ['resource_20manager_8',['The Resource Manager',['../dc/d2f/resourceman.html#resourceman-the-resource-manager',1,'']]],
+  ['resource_20type_9',['The Resource Type',['../dc/d2f/resourceman.html#resourceman-typename-resource',1,'']]],
+  ['resourceman_10',['ResourceMan',['../d2/d39/classSolaris_1_1ResourceMan.html',1,'Solaris']]],
+  ['resourceman_2ehpp_11',['ResourceMan.hpp',['../dd/dd9/ResourceMan_8hpp.html',1,'']]],
+  ['resources_12',['Resources',['../dc/d2f/resourceman.html#resourceman-casting-resources',1,'Casting Resources'],['../dc/d2f/resourceman.html#resourceman-resource',1,'Resources']]],
+  ['resources_13',['resources',['../d2/d39/classSolaris_1_1ResourceMan.html#a47e9fc6b17ce8f822c462d52339c4634',1,'Solaris::ResourceMan']]]
 ];

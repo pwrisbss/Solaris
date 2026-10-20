@@ -1,69 +1,92 @@
 \doxysection{Resource\+Man.\+hpp}
 \hypertarget{ResourceMan_8hpp_source}{}\label{ResourceMan_8hpp_source}\index{ResourceMan.hpp@{ResourceMan.hpp}}
-
+\doxymbox{\hyperlink{ResourceMan_8hpp}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00001\ \textcolor{comment}{//\ resource\ manager}}
-\DoxyCodeLine{00002\ }
-\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#ifndef\ SOLARIS\_RESOURCEMAN\_H}}
-\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#define\ SOLARIS\_RESOURCEMAN\_H}}
-\DoxyCodeLine{00005\ }
-\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <cstdint>}}
-\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <iostream>}}
-\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <fstream>}}
-\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
-\DoxyCodeLine{00010\ }
-\DoxyCodeLine{00011\ \textcolor{keyword}{namespace\ }Solaris\ \{}
-\DoxyCodeLine{00012\ }
-\DoxyCodeLine{00013\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{structSolaris_1_1Resource}{Resource}}\ \{}
-\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ size;}
-\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{void}\ *\ pdata;}
-\DoxyCodeLine{00016\ \};}
-\DoxyCodeLine{00017\ }
-\DoxyCodeLine{00018\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ \_data\_type>}
-\DoxyCodeLine{00019\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{structSolaris_1_1CastedResource}{CastedResource}}\ \{}
-\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ len;}
-\DoxyCodeLine{00021\ \ \ \ \ \_data\_type\ *\ pdata;}
-\DoxyCodeLine{00022\ \};}
-\DoxyCodeLine{00023\ }
-\DoxyCodeLine{00024\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ \_cast\_type>\ \doxymbox{\hyperlink{structSolaris_1_1CastedResource}{CastedResource<\_cast\_type>}}\ CastResource(\doxymbox{\hyperlink{structSolaris_1_1Resource}{Resource}}\&\ resource)\ \{}
-\DoxyCodeLine{00025\ \ \ \ \ \doxymbox{\hyperlink{structSolaris_1_1CastedResource}{CastedResource<\_cast\_type>}}\ casted;}
-\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ type\_size\ =\ \textcolor{keyword}{sizeof}(\_cast\_type);}
-\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ resource\_size;}
-\DoxyCodeLine{00028\ }
-\DoxyCodeLine{00029\ \ \ \ \ \textcolor{comment}{//\ TODO\ add\ error\ handling}}
-\DoxyCodeLine{00030\ \ \ \ \ \textcolor{comment}{//\ for\ when\ resource\_size\ isnt\ divisible\ by\ type\_size}}
-\DoxyCodeLine{00031\ }
-\DoxyCodeLine{00032\ \ \ \ \ resource\_size\ =\ resource.size;}
-\DoxyCodeLine{00033\ \ \ \ \ casted.len\ =\ resource\_size\ /\ type\_size;}
-\DoxyCodeLine{00034\ \ \ \ \ casted.pdata\ =\ (\_cast\_type*)resource.pdata;}
-\DoxyCodeLine{00035\ }
-\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordflow}{return}\ casted;}
-\DoxyCodeLine{00037\ \}}
-\DoxyCodeLine{00038\ }
-\DoxyCodeLine{00039\ \textcolor{keyword}{class\ }ResourceMan\ \{}
-\DoxyCodeLine{00040\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00041\ \textcolor{keywordtype}{unsigned}\ next\_id;}
-\DoxyCodeLine{00042\ \textcolor{keywordtype}{unsigned}\ NewResource();}
-\DoxyCodeLine{00043\ }
-\DoxyCodeLine{00044\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00045\ std::unordered\_map<unsigned,\ Resource>\ resources;}
-\DoxyCodeLine{00046\ \ \ \ \ ResourceMan();}
-\DoxyCodeLine{00047\ \ \ \ \ \string~ResourceMan();}
-\DoxyCodeLine{00048\ }
-\DoxyCodeLine{00049\ \ \ \ \ \doxymbox{\hyperlink{structSolaris_1_1Resource}{Resource}}\ FetchResource(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{id});}
-\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ LoadResource(std::string\ file\_location,\ \textcolor{keywordtype}{bool}\ load\_as\_string\ =\ \textcolor{keyword}{false});}
-\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ LoadResource(std::string\ vse\_container\_location,\ uint64\_t\ offset);\ \textcolor{comment}{//\ NOT\ IMPLEMENTED}}
-\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ OwnResource(\textcolor{keywordtype}{void}\ *\ resource\_address,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ resource\_size);}
-\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{void}\ DestroyResource(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{id},\ \textcolor{keywordtype}{bool}\ unload\ =\ \textcolor{keyword}{true});}
-\DoxyCodeLine{00054\ }
-\DoxyCodeLine{00055\ }
-\DoxyCodeLine{00056\ }
-\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ \_cast\_type>\ \doxymbox{\hyperlink{structSolaris_1_1CastedResource}{CastedResource<\_cast\_type>}}}
-\DoxyCodeLine{00058\ \ \ \ \ FetchCasted(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{id})\ \{\ \textcolor{keywordflow}{return}\ CastResource<\_cast\_type>(this-\/>resources[\textcolor{keywordtype}{id}]);\ \};}
-\DoxyCodeLine{00059\ \};}
-\DoxyCodeLine{00060\ }
-\DoxyCodeLine{00061\ \}}
-\DoxyCodeLine{00062\ }
-\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ SOLARIS\_RESOURCEMAN\_H}}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \textcolor{preprocessor}{\#ifndef\ SOLARIS\_RESOURCEMAN\_H}}
+\DoxyCodeLine{00108\ \textcolor{preprocessor}{\#define\ SOLARIS\_RESOURCEMAN\_H}}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \textcolor{preprocessor}{\#include\ <cstdint>}}
+\DoxyCodeLine{00111\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00112\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00113\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \textcolor{keyword}{namespace\ }Solaris\ \{}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00125\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{structSolaris_1_1Resource}{Resource}}\ \{}
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \doxymbox{\hyperlink{structSolaris_1_1Resource_aacea860ada864b30e4c0acc3379c971b}{size}};}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{keywordtype}{void}\ *\ \doxymbox{\hyperlink{structSolaris_1_1Resource_a3db9883e15e21d1bace7037f514d5b0d}{pdata}};}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{structSolaris_1_1Resource_add07d2bd21a747ab7ead67940e0d12d5}{operator==}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structSolaris_1_1Resource}{Resource}}\&\ other)\ \{}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (this-\/>size\ \ ==\ other.\doxymbox{\hyperlink{structSolaris_1_1Resource_aacea860ada864b30e4c0acc3379c971b}{size}})\ \&\&}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (this-\/>pdata\ ==\ other.\doxymbox{\hyperlink{structSolaris_1_1Resource_a3db9883e15e21d1bace7037f514d5b0d}{pdata}});}
+\DoxyCodeLine{00148\ \ \ \ \ \};}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00159\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{structSolaris_1_1Resource_af069c96d9e354a20d39e8ae5be7cc1eb}{operator!=}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structSolaris_1_1Resource}{Resource}}\&\ other)\ \{}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (this-\/>size\ \ !=\ other.\doxymbox{\hyperlink{structSolaris_1_1Resource_aacea860ada864b30e4c0acc3379c971b}{size}})\ ||}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (this-\/>pdata\ !=\ other.\doxymbox{\hyperlink{structSolaris_1_1Resource_a3db9883e15e21d1bace7037f514d5b0d}{pdata}});}
+\DoxyCodeLine{00162\ \ \ \ \ \};}
+\DoxyCodeLine{00163\ \};}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00176\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ \_data\_type>}
+\DoxyCodeLine{00177\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{structSolaris_1_1CastedResource}{CastedResource}}\ \{}
+\DoxyCodeLine{00183\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \doxymbox{\hyperlink{structSolaris_1_1CastedResource_a7ddb3c50a4398659383613b17db83c26}{len}};}
+\DoxyCodeLine{00184\ }
+\DoxyCodeLine{00189\ \ \ \ \ \_data\_type\ *\ \doxymbox{\hyperlink{structSolaris_1_1CastedResource_a11a15c6f2d0d9a40a3a600ceae729967}{pdata}};}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00197\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{structSolaris_1_1CastedResource_a42f24598fc2bb41750c1c1307d7d2148}{operator==}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structSolaris_1_1CastedResource}{CastedResource<\_data\_type>}}\&\ other)\ \{}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (this-\/>len\ \ \ ==\ other.\doxymbox{\hyperlink{structSolaris_1_1CastedResource_a7ddb3c50a4398659383613b17db83c26}{len}})\ \&\&}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (this-\/>pdata\ ==\ other.\doxymbox{\hyperlink{structSolaris_1_1CastedResource_a11a15c6f2d0d9a40a3a600ceae729967}{pdata}});}
+\DoxyCodeLine{00200\ \ \ \ \ \};}
+\DoxyCodeLine{00201\ }
+\DoxyCodeLine{00208\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{structSolaris_1_1CastedResource_a70877a5e06783199c163de16f81fdf08}{operator!=}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structSolaris_1_1CastedResource}{CastedResource<\_data\_type>}}\&\ other)\ \{}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (this-\/>len\ \ \ !=\ other.\doxymbox{\hyperlink{structSolaris_1_1CastedResource_a7ddb3c50a4398659383613b17db83c26}{len}})\ ||}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (this-\/>pdata\ !=\ other.\doxymbox{\hyperlink{structSolaris_1_1CastedResource_a11a15c6f2d0d9a40a3a600ceae729967}{pdata}});}
+\DoxyCodeLine{00211\ \ \ \ \ \};}
+\DoxyCodeLine{00212\ \};}
+\DoxyCodeLine{00213\ }
+\DoxyCodeLine{00224\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ \_cast\_type>\ \doxymbox{\hyperlink{structSolaris_1_1CastedResource}{CastedResource<\_cast\_type>}}\ \doxymbox{\hyperlink{ResourceMan_8hpp_a60230f3d6f22a8ff097ff764af582a6a}{CastResource}}(\doxymbox{\hyperlink{structSolaris_1_1Resource}{Resource}}\&\ resource)\ \{}
+\DoxyCodeLine{00225\ \ \ \ \ \doxymbox{\hyperlink{structSolaris_1_1CastedResource}{CastedResource<\_cast\_type>}}\ casted;}
+\DoxyCodeLine{00226\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ type\_size\ =\ \textcolor{keyword}{sizeof}(\_cast\_type);}
+\DoxyCodeLine{00227\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ resource\_size;}
+\DoxyCodeLine{00228\ }
+\DoxyCodeLine{00229\ \ \ \ \ \textcolor{comment}{//\ TODO\ add\ error\ handling}}
+\DoxyCodeLine{00230\ \ \ \ \ \textcolor{comment}{//\ for\ when\ resource\_size\ isnt\ divisible\ by\ type\_size}}
+\DoxyCodeLine{00231\ }
+\DoxyCodeLine{00232\ \ \ \ \ resource\_size\ =\ resource.\doxymbox{\hyperlink{structSolaris_1_1Resource_aacea860ada864b30e4c0acc3379c971b}{size}};}
+\DoxyCodeLine{00233\ \ \ \ \ casted.\doxymbox{\hyperlink{structSolaris_1_1CastedResource_a7ddb3c50a4398659383613b17db83c26}{len}}\ =\ resource\_size\ /\ type\_size;}
+\DoxyCodeLine{00234\ \ \ \ \ casted.\doxymbox{\hyperlink{structSolaris_1_1CastedResource_a11a15c6f2d0d9a40a3a600ceae729967}{pdata}}\ =\ (\_cast\_type*)resource.\doxymbox{\hyperlink{structSolaris_1_1Resource_a3db9883e15e21d1bace7037f514d5b0d}{pdata}};}
+\DoxyCodeLine{00235\ }
+\DoxyCodeLine{00236\ \ \ \ \ \textcolor{keywordflow}{return}\ casted;}
+\DoxyCodeLine{00237\ \}}
+\DoxyCodeLine{00238\ }
+\DoxyCodeLine{00247\ \textcolor{keyword}{class\ }ResourceMan\ \{}
+\DoxyCodeLine{00248\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00249\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ next\_id;}
+\DoxyCodeLine{00250\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ NewResource();}
+\DoxyCodeLine{00251\ }
+\DoxyCodeLine{00252\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00257\ \ \ \ \ std::unordered\_map<unsigned,\ Resource>\ \doxymbox{\hyperlink{classSolaris_1_1ResourceMan_a47e9fc6b17ce8f822c462d52339c4634}{resources}};}
+\DoxyCodeLine{00258\ \ \ \ \ ResourceMan();}
+\DoxyCodeLine{00259\ \ \ \ \ \string~ResourceMan();}
+\DoxyCodeLine{00260\ }
+\DoxyCodeLine{00261\ \ \ \ \ \doxymbox{\hyperlink{structSolaris_1_1Resource}{Resource}}\ FetchResource(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00262\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ LoadResource(std::string\ file\_location,\ \textcolor{keywordtype}{bool}\ load\_as\_string\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00263\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ LoadResource(std::string\ vse\_container\_location,\ uint64\_t\ offset);\ \textcolor{comment}{//\ NOT\ IMPLEMENTED}}
+\DoxyCodeLine{00264\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ OwnResource(\textcolor{keywordtype}{void}\ *\ resource\_address,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ resource\_size);}
+\DoxyCodeLine{00265\ \ \ \ \ \textcolor{keywordtype}{void}\ DestroyResource(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{id},\ \textcolor{keywordtype}{bool}\ unload\ =\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00266\ }
+\DoxyCodeLine{00267\ }
+\DoxyCodeLine{00268\ }
+\DoxyCodeLine{00269\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ \_cast\_type>\ \doxymbox{\hyperlink{structSolaris_1_1CastedResource}{CastedResource<\_cast\_type>}}}
+\DoxyCodeLine{00270\ \ \ \ \ FetchCasted(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{id})\ \{\ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{ResourceMan_8hpp_a60230f3d6f22a8ff097ff764af582a6a}{CastResource<\_cast\_type>}}(this-\/>resources[\textcolor{keywordtype}{id}]);\ \};}
+\DoxyCodeLine{00271\ \};}
+\DoxyCodeLine{00272\ }
+\DoxyCodeLine{00273\ \}}
+\DoxyCodeLine{00274\ }
+\DoxyCodeLine{00275\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ SOLARIS\_RESOURCEMAN\_H}}
 
 \end{DoxyCode}

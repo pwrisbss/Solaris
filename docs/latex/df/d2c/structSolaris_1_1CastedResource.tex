@@ -1,16 +1,93 @@
 \doxysection{Solaris::Casted\+Resource\texorpdfstring{$<$}{<} \+\_\+data\+\_\+type \texorpdfstring{$>$}{>} Struct Template Reference}
 \hypertarget{structSolaris_1_1CastedResource}{}\label{structSolaris_1_1CastedResource}\index{Solaris::CastedResource$<$ \_data\_type $>$@{Solaris::CastedResource$<$ \_data\_type $>$}}
+
+
+Holds information about a specific resource with known data type.  
+
+
+
+
+{\ttfamily \+\#include $<$Resource\+Man.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \doxymbox{\hyperlink{structSolaris_1_1CastedResource_a42f24598fc2bb41750c1c1307d7d2148}{operator==}} (const \doxymbox{\hyperlink{structSolaris_1_1CastedResource}{Casted\+Resource}}$<$ \+\_\+data\+\_\+type $>$ \&other)
+\begin{DoxyCompactList}\small\item\em Same as {\ttfamily \doxylink{structSolaris_1_1Resource_add07d2bd21a747ab7ead67940e0d12d5}{Resource::\+operator==()}}, except accepts a \doxylink{structSolaris_1_1CastedResource}{Casted\+Resource} of the same type. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{structSolaris_1_1CastedResource_a70877a5e06783199c163de16f81fdf08}{operator!=}} (const \doxymbox{\hyperlink{structSolaris_1_1CastedResource}{Casted\+Resource}}$<$ \+\_\+data\+\_\+type $>$ \&other)
+\begin{DoxyCompactList}\small\item\em Same as {\ttfamily \doxylink{structSolaris_1_1Resource_af069c96d9e354a20d39e8ae5be7cc1eb}{Resource::\+operator!=()}}, except accepts a \doxylink{structSolaris_1_1CastedResource}{Casted\+Resource} of the same type. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \Hypertarget{structSolaris_1_1CastedResource_a7ddb3c50a4398659383613b17db83c26}\label{structSolaris_1_1CastedResource_a7ddb3c50a4398659383613b17db83c26} 
 unsigned long {\bfseries len}
-\item 
+\begin{DoxyCompactList}\small\item\em Length of the resource data. i.\+e., number of \doxylink{structSolaris_1_1CastedResource}{\+\_\+data\+\_\+type} elements in this specific resource. Not to be confused with {\ttfamily \doxylink{structSolaris_1_1Resource_aacea860ada864b30e4c0acc3379c971b}{Resource::\+size}}. \end{DoxyCompactList}\item 
 \Hypertarget{structSolaris_1_1CastedResource_a11a15c6f2d0d9a40a3a600ceae729967}\label{structSolaris_1_1CastedResource_a11a15c6f2d0d9a40a3a600ceae729967} 
 \+\_\+data\+\_\+type \texorpdfstring{$\ast$}{*} {\bfseries pdata}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Pointer to resource data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename \+\_\+data\+\_\+type$>$\newline
+struct Solaris::\+\+Casted\+Resource$<$ \+\_\+data\+\_\+type $>$}
+Holds information about a specific resource with known data type. 
+
+Same as \doxylink{structSolaris_1_1Resource}{Resource} except for resources with known data types. 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em \+\_\+data\+\_\+type} & Typename of the resource\textquotesingle{}s data. \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyAttention}{Attention}
+The \+\_\+data\+\_\+type template parameter is the type of the data the \doxylink{structSolaris_1_1CastedResource}{Casted\+Resource} points to, not the type of the pointer itself (e.\+g. if you have an array of {\ttfamily unsigned char}s, its appropriate \doxylink{structSolaris_1_1CastedResource}{Casted\+Resource} pointing to said array would be {\ttfamily \doxylink{structSolaris_1_1CastedResource}{Casted\+Resource}\texorpdfstring{$<$}{<}unsigned char\texorpdfstring{$>$}{>}}, not {\ttfamily \doxylink{structSolaris_1_1CastedResource}{Casted\+Resource}\texorpdfstring{$<$}{<}unsigned char\texorpdfstring{$\ast$}{*}\texorpdfstring{$>$}{>}}) 
+\end{DoxyAttention}
+\begin{DoxySeeAlso}{See also}
+\doxylink{structSolaris_1_1Resource}{Resource} 
+\end{DoxySeeAlso}
+
+
+\label{structSolaris_1_1CastedResource_doc-func-members}
+\Hypertarget{structSolaris_1_1CastedResource_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{structSolaris_1_1CastedResource_a70877a5e06783199c163de16f81fdf08}\index{Solaris::CastedResource$<$ \_data\_type $>$@{Solaris::CastedResource$<$ \_data\_type $>$}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!Solaris::CastedResource$<$ \_data\_type $>$@{Solaris::CastedResource$<$ \_data\_type $>$}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily \label{structSolaris_1_1CastedResource_a70877a5e06783199c163de16f81fdf08} 
+template$<$typename \+\_\+data\+\_\+type$>$ \\
+bool \doxymbox{\hyperlink{structSolaris_1_1CastedResource}{Solaris::\+\+Casted\+Resource}}$<$ \+\_\+data\+\_\+type $>$::\+operator!= (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{structSolaris_1_1CastedResource}{Casted\+Resource}}$<$ \+\_\+data\+\_\+type $>$ \&}]{other}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Same as {\ttfamily \doxylink{structSolaris_1_1Resource_af069c96d9e354a20d39e8ae5be7cc1eb}{Resource::\+operator!=()}}, except accepts a \doxylink{structSolaris_1_1CastedResource}{Casted\+Resource} of the same type. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The other \doxylink{structSolaris_1_1CastedResource}{Casted\+Resource} being compared against. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\doxylink{structSolaris_1_1Resource_af069c96d9e354a20d39e8ae5be7cc1eb}{Resource::\+operator!=()} 
+\end{DoxySeeAlso}
+\Hypertarget{structSolaris_1_1CastedResource_a42f24598fc2bb41750c1c1307d7d2148}\index{Solaris::CastedResource$<$ \_data\_type $>$@{Solaris::CastedResource$<$ \_data\_type $>$}!operator==@{operator==}}
+\index{operator==@{operator==}!Solaris::CastedResource$<$ \_data\_type $>$@{Solaris::CastedResource$<$ \_data\_type $>$}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily \label{structSolaris_1_1CastedResource_a42f24598fc2bb41750c1c1307d7d2148} 
+template$<$typename \+\_\+data\+\_\+type$>$ \\
+bool \doxymbox{\hyperlink{structSolaris_1_1CastedResource}{Solaris::\+\+Casted\+Resource}}$<$ \+\_\+data\+\_\+type $>$::\+operator== (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{structSolaris_1_1CastedResource}{Casted\+Resource}}$<$ \+\_\+data\+\_\+type $>$ \&}]{other}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Same as {\ttfamily \doxylink{structSolaris_1_1Resource_add07d2bd21a747ab7ead67940e0d12d5}{Resource::\+operator==()}}, except accepts a \doxylink{structSolaris_1_1CastedResource}{Casted\+Resource} of the same type. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The other \doxylink{structSolaris_1_1CastedResource}{Casted\+Resource} being compared against. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\doxylink{structSolaris_1_1Resource_add07d2bd21a747ab7ead67940e0d12d5}{Resource::\+operator==()} 
+\end{DoxySeeAlso}
 
 
 The documentation for this struct was generated from the following file:\begin{DoxyCompactItemize}
 \item 
-Resource\+Man.\+hpp\end{DoxyCompactItemize}
+\doxymbox{\hyperlink{ResourceMan_8hpp}{Resource\+Man.\+hpp}}\end{DoxyCompactItemize}

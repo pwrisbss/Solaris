@@ -32,6 +32,15 @@ var NAVTREE =
         [ "Relationship with Siblings", "da/d0e/renderobject.html#renderobject-definition-siblings", null ]
       ] ]
     ] ],
+    [ "Resource Management", "dc/d2f/resourceman.html", [
+      [ "Resources", "dc/d2f/resourceman.html#resourceman-resource", [
+        [ "The Resource Type", "dc/d2f/resourceman.html#resourceman-typename-resource", null ],
+        [ "The CastedResource Type", "dc/d2f/resourceman.html#resourceman-typename-castedresource", [
+          [ "Casting Resources", "dc/d2f/resourceman.html#resourceman-casting-resources", null ]
+        ] ]
+      ] ],
+      [ "The Resource Manager", "dc/d2f/resourceman.html#resourceman-the-resource-manager", null ]
+    ] ],
     [ "Todo List", "dd/da0/todo.html", null ],
     [ "Bug List", "de/da5/bug.html", null ],
     [ "Classes", "annotated.html", [
@@ -40,7 +49,8 @@ var NAVTREE =
       [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
       [ "Class Members", "functions.html", [
         [ "All", "functions.html", null ],
-        [ "Functions", "functions_func.html", null ]
+        [ "Functions", "functions_func.html", null ],
+        [ "Variables", "functions_vars.html", null ]
       ] ]
     ] ],
     [ "Files", "files.html", [

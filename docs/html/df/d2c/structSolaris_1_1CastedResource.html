@@ -114,14 +114,112 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('df/d2c/structS
   <div class="headertitle"><div class="title">Solaris::CastedResource&lt; _data_type &gt; Struct Template Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Holds information about a specific resource with known data type.  
+ <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="../../dd/dd9/ResourceMan_8hpp_source.html">ResourceMan.hpp</a>&gt;</code></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a42f24598fc2bb41750c1c1307d7d2148" id="r_a42f24598fc2bb41750c1c1307d7d2148"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a42f24598fc2bb41750c1c1307d7d2148">operator==</a> (const <a class="el" href="../../df/d2c/structSolaris_1_1CastedResource.html">CastedResource</a>&lt; _data_type &gt; &amp;other)</td></tr>
+<tr class="memdesc:a42f24598fc2bb41750c1c1307d7d2148"><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <span class="tt"><a class="el" href="../../d5/d8d/structSolaris_1_1Resource.html#add07d2bd21a747ab7ead67940e0d12d5" title="Check if the other Resource points to the same memory block with the same size as this Resource.">Resource::operator==()</a></span>, except accepts a <a class="el" href="../../df/d2c/structSolaris_1_1CastedResource.html" title="Holds information about a specific resource with known data type.">CastedResource</a> of the same type.  <br /></td></tr>
+<tr class="memitem:a70877a5e06783199c163de16f81fdf08" id="r_a70877a5e06783199c163de16f81fdf08"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a70877a5e06783199c163de16f81fdf08">operator!=</a> (const <a class="el" href="../../df/d2c/structSolaris_1_1CastedResource.html">CastedResource</a>&lt; _data_type &gt; &amp;other)</td></tr>
+<tr class="memdesc:a70877a5e06783199c163de16f81fdf08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <span class="tt"><a class="el" href="../../d5/d8d/structSolaris_1_1Resource.html#af069c96d9e354a20d39e8ae5be7cc1eb" title="Check if the other Resource doesn&#39;t point to the same memory block and/or isn&#39;t the same size as this...">Resource::operator!=()</a></span>, except accepts a <a class="el" href="../../df/d2c/structSolaris_1_1CastedResource.html" title="Holds information about a specific resource with known data type.">CastedResource</a> of the same type.  <br /></td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a7ddb3c50a4398659383613b17db83c26" id="r_a7ddb3c50a4398659383613b17db83c26"><td class="memItemLeft"><a id="a7ddb3c50a4398659383613b17db83c26" name="a7ddb3c50a4398659383613b17db83c26"></a>
 unsigned long&#160;</td><td class="memItemRight"><b>len</b></td></tr>
+<tr class="memdesc:a7ddb3c50a4398659383613b17db83c26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Length of the resource data. i.e., number of <a class="el" href="../../df/d2c/structSolaris_1_1CastedResource.html" title="CastedResource">_data_type</a> elements in this specific resource. Not to be confused with <span class="tt"><a class="el" href="../../d5/d8d/structSolaris_1_1Resource.html#aacea860ada864b30e4c0acc3379c971b" title="Size of the resource data in bytes.">Resource::size</a></span>. <br /></td></tr>
 <tr class="memitem:a11a15c6f2d0d9a40a3a600ceae729967" id="r_a11a15c6f2d0d9a40a3a600ceae729967"><td class="memItemLeft"><a id="a11a15c6f2d0d9a40a3a600ceae729967" name="a11a15c6f2d0d9a40a3a600ceae729967"></a>
 _data_type *&#160;</td><td class="memItemRight"><b>pdata</b></td></tr>
+<tr class="memdesc:a11a15c6f2d0d9a40a3a600ceae729967"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to resource data. <br /></td></tr>
 </table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><div class="compoundTemplParams">template&lt;typename _data_type&gt;<br />
+struct Solaris::CastedResource&lt; _data_type &gt;</div><p>Holds information about a specific resource with known data type. </p>
+<p>Same as <a class="el" href="../../d5/d8d/structSolaris_1_1Resource.html" title="Holds information about a specific resource.">Resource</a> except for resources with known data types. </p><dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">_data_type</td><td>Typename of the resource's data. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section attention"><dt>Attention</dt><dd>The _data_type template parameter is the type of the data the <a class="el" href="../../df/d2c/structSolaris_1_1CastedResource.html" title="Holds information about a specific resource with known data type.">CastedResource</a> points to, not the type of the pointer itself (e.g. if you have an array of <span class="tt">unsigned char</span>s, its appropriate <a class="el" href="../../df/d2c/structSolaris_1_1CastedResource.html" title="Holds information about a specific resource with known data type.">CastedResource</a> pointing to said array would be <span class="tt"><a class="el" href="../../df/d2c/structSolaris_1_1CastedResource.html" title="Holds information about a specific resource with known data type.">CastedResource</a>&lt;unsigned char&gt;</span>, not <span class="tt"><a class="el" href="../../df/d2c/structSolaris_1_1CastedResource.html" title="Holds information about a specific resource with known data type.">CastedResource</a>&lt;unsigned char*&gt;</span>) </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d5/d8d/structSolaris_1_1Resource.html" title="Holds information about a specific resource.">Resource</a> </dd></dl>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="a70877a5e06783199c163de16f81fdf08" name="a70877a5e06783199c163de16f81fdf08"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70877a5e06783199c163de16f81fdf08">&#9670;&#160;</a></span>operator!=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename _data_type&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../df/d2c/structSolaris_1_1CastedResource.html">Solaris::CastedResource</a>&lt; _data_type &gt;::operator!= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../df/d2c/structSolaris_1_1CastedResource.html">CastedResource</a>&lt; _data_type &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Same as <span class="tt"><a class="el" href="../../d5/d8d/structSolaris_1_1Resource.html#af069c96d9e354a20d39e8ae5be7cc1eb" title="Check if the other Resource doesn&#39;t point to the same memory block and/or isn&#39;t the same size as this...">Resource::operator!=()</a></span>, except accepts a <a class="el" href="../../df/d2c/structSolaris_1_1CastedResource.html" title="Holds information about a specific resource with known data type.">CastedResource</a> of the same type. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>The other <a class="el" href="../../df/d2c/structSolaris_1_1CastedResource.html" title="Holds information about a specific resource with known data type.">CastedResource</a> being compared against. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d5/d8d/structSolaris_1_1Resource.html#af069c96d9e354a20d39e8ae5be7cc1eb" title="Check if the other Resource doesn&#39;t point to the same memory block and/or isn&#39;t the same size as this...">Resource::operator!=()</a> </dd></dl>
+
+</div>
+</div>
+<a id="a42f24598fc2bb41750c1c1307d7d2148" name="a42f24598fc2bb41750c1c1307d7d2148"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a42f24598fc2bb41750c1c1307d7d2148">&#9670;&#160;</a></span>operator==()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename _data_type&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../df/d2c/structSolaris_1_1CastedResource.html">Solaris::CastedResource</a>&lt; _data_type &gt;::operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../df/d2c/structSolaris_1_1CastedResource.html">CastedResource</a>&lt; _data_type &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Same as <span class="tt"><a class="el" href="../../d5/d8d/structSolaris_1_1Resource.html#add07d2bd21a747ab7ead67940e0d12d5" title="Check if the other Resource points to the same memory block with the same size as this Resource.">Resource::operator==()</a></span>, except accepts a <a class="el" href="../../df/d2c/structSolaris_1_1CastedResource.html" title="Holds information about a specific resource with known data type.">CastedResource</a> of the same type. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>The other <a class="el" href="../../df/d2c/structSolaris_1_1CastedResource.html" title="Holds information about a specific resource with known data type.">CastedResource</a> being compared against. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d5/d8d/structSolaris_1_1Resource.html#add07d2bd21a747ab7ead67940e0d12d5" title="Check if the other Resource points to the same memory block with the same size as this Resource.">Resource::operator==()</a> </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li><a class="el" href="../../dd/dd9/ResourceMan_8hpp_source.html">ResourceMan.hpp</a></li>
 </ul>

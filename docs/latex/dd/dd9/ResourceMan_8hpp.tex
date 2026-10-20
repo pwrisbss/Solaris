@@ -1,0 +1,71 @@
+\doxysection{Resource\+Man.\+hpp File Reference}
+\hypertarget{ResourceMan_8hpp}{}\label{ResourceMan_8hpp}\index{ResourceMan.hpp@{ResourceMan.hpp}}
+
+
+Solaris Resource Manager.  
+
+
+{\ttfamily \+\#include $<$cstdint$>$}\newline
+{\ttfamily \+\#include $<$iostream$>$}\newline
+{\ttfamily \+\#include $<$fstream$>$}\newline
+{\ttfamily \+\#include $<$unordered\+\_\+map$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \doxymbox{\hyperlink{structSolaris_1_1Resource}{Solaris::\+\+Resource}}
+\begin{DoxyCompactList}\small\item\em Holds information about a specific resource. \end{DoxyCompactList}\item 
+struct \doxymbox{\hyperlink{structSolaris_1_1CastedResource}{Solaris::\+\+Casted\+Resource$<$ \+\_\+data\+\_\+type $>$}}
+\begin{DoxyCompactList}\small\item\em Holds information about a specific resource with known data type. \end{DoxyCompactList}\item 
+class \doxymbox{\hyperlink{classSolaris_1_1ResourceMan}{Solaris::\+\+Resource\+Man}}
+\begin{DoxyCompactList}\small\item\em \doxylink{structSolaris_1_1Resource}{Resource} Manager class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename \+\_\+cast\+\_\+type$>$ }\\\doxymbox{\hyperlink{structSolaris_1_1CastedResource}{Casted\+Resource}}$<$ \+\_\+cast\+\_\+type $>$ \doxymbox{\hyperlink{ResourceMan_8hpp_a60230f3d6f22a8ff097ff764af582a6a}{Solaris::\+\+Cast\+Resource}} (\doxymbox{\hyperlink{structSolaris_1_1Resource}{Resource}} \&resource)
+\begin{DoxyCompactList}\small\item\em Casts a \doxylink{structSolaris_1_1Resource}{Resource} object to a \doxylink{structSolaris_1_1CastedResource}{Casted\+Resource$<$\+\_\+cast\+\_\+type$>$}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Solaris Resource Manager. 
+
+\begin{DoxyAuthor}{Author}
+pwr (\href{mailto:pwr.is.bss@tuta.io}{\texttt{pwr.\+is.\+bss@tuta.\+io}}) 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+alpha-\/0.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2026-\/10-\/19
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+GNU General Public License (see COPYING) 
+\end{DoxyCopyright}
+
+
+\label{ResourceMan_8hpp_doc-func-members}
+\Hypertarget{ResourceMan_8hpp_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{ResourceMan_8hpp_a60230f3d6f22a8ff097ff764af582a6a}\index{ResourceMan.hpp@{ResourceMan.hpp}!CastResource@{CastResource}}
+\index{CastResource@{CastResource}!ResourceMan.hpp@{ResourceMan.hpp}}
+\doxysubsubsection{\texorpdfstring{CastResource()}{CastResource()}}
+{\footnotesize\ttfamily \label{ResourceMan_8hpp_a60230f3d6f22a8ff097ff764af582a6a} 
+template$<$typename \+\_\+cast\+\_\+type$>$ \\
+Casted\+Resource$<$ \+\_\+cast\+\_\+type $>$ Solaris::\+\+Cast\+Resource (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{structSolaris_1_1Resource}{Resource}} \&}]{resource}{}\end{DoxyParamCaption})}
+
+
+
+Casts a Resource object to a Casted\+Resource$<$\+\_\+cast\+\_\+type$>$. 
+
+Conventionally, a Resource object points to a resource whom its data type is unknown. Mainly, it only exists so that a resource manager can store, process and manage resources of any type. As such, most Solaris components will ask for resources with known data types. See \doxysectlink{resourceman}{Resource Management}{0}. 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em \+\_\+cast\+\_\+type} & Data type to cast the Resource to. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em resource} & Resource to be casted. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Casted\+Resource$<$\+\_\+cast\+\_\+type$>$ 
+\end{DoxyReturn}

@@ -128,27 +128,41 @@ Inheritance diagram for Solaris::Model:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a537af69d84701472226a6137133d2f0b" id="r_a537af69d84701472226a6137133d2f0b"><td class="memItemLeft"><a id="a537af69d84701472226a6137133d2f0b" name="a537af69d84701472226a6137133d2f0b"></a>
 &#160;</td><td class="memItemRight"><b>Model</b> (const <a class="el" href="../../df/d2c/structSolaris_1_1CastedResource.html">CastedResource</a>&lt; float &gt; &amp;mesh_data, const <a class="el" href="../../df/d2c/structSolaris_1_1CastedResource.html">CastedResource</a>&lt; unsigned char &gt; &amp;texture_data, glm::vec3 initial_pos={0.0f, 0.0f, 0.0f})</td></tr>
-<tr class="memitem:a46073ec75dfb4723c83550f6c306fcd2" id="r_a46073ec75dfb4723c83550f6c306fcd2"><td class="memItemLeft"><a id="a46073ec75dfb4723c83550f6c306fcd2" name="a46073ec75dfb4723c83550f6c306fcd2"></a>
-void&#160;</td><td class="memItemRight"><b>AttachRender</b> (std::function&lt; bool(Model &amp;)&gt; event)</td></tr>
-<tr class="memitem:af3a15d12fa239e5f3c7a5e576c5dc945" id="r_af3a15d12fa239e5f3c7a5e576c5dc945"><td class="memItemLeft"><a id="af3a15d12fa239e5f3c7a5e576c5dc945" name="af3a15d12fa239e5f3c7a5e576c5dc945"></a>
-void&#160;</td><td class="memItemRight"><b>AttachShouldRender</b> (std::function&lt; bool(Model &amp;)&gt; event)</td></tr>
-<tr class="memitem:a94176a7a46b0d17fb3547bb548171c20" id="r_a94176a7a46b0d17fb3547bb548171c20"><td class="memItemLeft"><a id="a94176a7a46b0d17fb3547bb548171c20" name="a94176a7a46b0d17fb3547bb548171c20"></a>
-void&#160;</td><td class="memItemRight"><b>AttachTick</b> (std::function&lt; bool(Model &amp;)&gt; event)</td></tr>
-<tr class="memitem:ac89a7750a42533db44a7c76cbce57502" id="r_ac89a7750a42533db44a7c76cbce57502"><td class="memItemLeft"><a id="ac89a7750a42533db44a7c76cbce57502" name="ac89a7750a42533db44a7c76cbce57502"></a>
-void&#160;</td><td class="memItemRight"><b>AttachConstruct</b> (std::function&lt; bool(Model &amp;)&gt; event)</td></tr>
-<tr class="memitem:aac48a3ac695368603d570fb3be1a7d2f" id="r_aac48a3ac695368603d570fb3be1a7d2f"><td class="memItemLeft"><a id="aac48a3ac695368603d570fb3be1a7d2f" name="aac48a3ac695368603d570fb3be1a7d2f"></a>
-void&#160;</td><td class="memItemRight"><b>AttachDestroy</b> (std::function&lt; bool(Model &amp;)&gt; event)</td></tr>
 <tr class="memitem:ac25add1039700d4db9dcf028ac9a27d6" id="r_ac25add1039700d4db9dcf028ac9a27d6"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ac25add1039700d4db9dcf028ac9a27d6">Render</a> (<a class="el" href="../../d3/d7b/classSolaris_1_1Renderer.html">Renderer</a> &amp;)</td></tr>
 <tr class="memitem:a4266414f4a13cd3f97c857b80d2b4d9f" id="r_a4266414f4a13cd3f97c857b80d2b4d9f"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a4266414f4a13cd3f97c857b80d2b4d9f">Construct</a> (<a class="el" href="../../d3/d7b/classSolaris_1_1Renderer.html">Renderer</a> &amp;)</td></tr>
 <tr class="memitem:ac64dae4c9a10424e4a0296f7e2c2bafa" id="r_ac64dae4c9a10424e4a0296f7e2c2bafa"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ac64dae4c9a10424e4a0296f7e2c2bafa">Destroy</a> (<a class="el" href="../../d3/d7b/classSolaris_1_1Renderer.html">Renderer</a> &amp;)</td></tr>
 <tr class="memitem:a69ad9a832efafd6cf8aaeae0fffe007b" id="r_a69ad9a832efafd6cf8aaeae0fffe007b"><td class="memItemLeft"><a id="a69ad9a832efafd6cf8aaeae0fffe007b" name="a69ad9a832efafd6cf8aaeae0fffe007b"></a>
 glm::vec3&#160;</td><td class="memItemRight"><b>GetPosition</b> ()</td></tr>
+<tr class="memitem:a421ff47c00ee3d88bf12a4acebcddcac" id="r_a421ff47c00ee3d88bf12a4acebcddcac"><td class="memItemLeft"><a id="a421ff47c00ee3d88bf12a4acebcddcac" name="a421ff47c00ee3d88bf12a4acebcddcac"></a>
+glm::vec3&#160;</td><td class="memItemRight"><b>GetScale</b> ()</td></tr>
 <tr class="memitem:a022e3164bc2ff14ffdbdfdce21258498" id="r_a022e3164bc2ff14ffdbdfdce21258498"><td class="memItemLeft"><a id="a022e3164bc2ff14ffdbdfdce21258498" name="a022e3164bc2ff14ffdbdfdce21258498"></a>
 glm::mat4&#160;</td><td class="memItemRight"><b>GetTransform</b> ()</td></tr>
+<tr class="memitem:a25b71032fe6ee008b1740d87beb421ad" id="r_a25b71032fe6ee008b1740d87beb421ad"><td class="memItemLeft"><a id="a25b71032fe6ee008b1740d87beb421ad" name="a25b71032fe6ee008b1740d87beb421ad"></a>
+float&#160;</td><td class="memItemRight"><b>GetXRotation</b> ()</td></tr>
+<tr class="memitem:a6c5e5f200e3337f60bebb92bd3b780e5" id="r_a6c5e5f200e3337f60bebb92bd3b780e5"><td class="memItemLeft"><a id="a6c5e5f200e3337f60bebb92bd3b780e5" name="a6c5e5f200e3337f60bebb92bd3b780e5"></a>
+float&#160;</td><td class="memItemRight"><b>GetYRotation</b> ()</td></tr>
+<tr class="memitem:a16c555468e07d378702075ce43e04af0" id="r_a16c555468e07d378702075ce43e04af0"><td class="memItemLeft"><a id="a16c555468e07d378702075ce43e04af0" name="a16c555468e07d378702075ce43e04af0"></a>
+float&#160;</td><td class="memItemRight"><b>GetZRotation</b> ()</td></tr>
 <tr class="memitem:a8ef0b83972105d229b1a312c8cfbdc07" id="r_a8ef0b83972105d229b1a312c8cfbdc07"><td class="memItemLeft"><a id="a8ef0b83972105d229b1a312c8cfbdc07" name="a8ef0b83972105d229b1a312c8cfbdc07"></a>
 void&#160;</td><td class="memItemRight"><b>SetPosition</b> (glm::vec3 to)</td></tr>
+<tr class="memitem:a33f5545d781b0a5c91fa0a1727b50e4b" id="r_a33f5545d781b0a5c91fa0a1727b50e4b"><td class="memItemLeft"><a id="a33f5545d781b0a5c91fa0a1727b50e4b" name="a33f5545d781b0a5c91fa0a1727b50e4b"></a>
+void&#160;</td><td class="memItemRight"><b>SetScale</b> (glm::vec3 to)</td></tr>
+<tr class="memitem:a8992097811be5b89b2afa62b751dcf26" id="r_a8992097811be5b89b2afa62b751dcf26"><td class="memItemLeft"><a id="a8992097811be5b89b2afa62b751dcf26" name="a8992097811be5b89b2afa62b751dcf26"></a>
+void&#160;</td><td class="memItemRight"><b>SetRotation</b> (float x, float y, float z)</td></tr>
+<tr class="memitem:ac93d4bbaee47a49987d01fd28ca97f0a" id="r_ac93d4bbaee47a49987d01fd28ca97f0a"><td class="memItemLeft"><a id="ac93d4bbaee47a49987d01fd28ca97f0a" name="ac93d4bbaee47a49987d01fd28ca97f0a"></a>
+void&#160;</td><td class="memItemRight"><b>SetXRotation</b> (float to)</td></tr>
+<tr class="memitem:ada778388fd9f952e07056fb4c4b96e71" id="r_ada778388fd9f952e07056fb4c4b96e71"><td class="memItemLeft"><a id="ada778388fd9f952e07056fb4c4b96e71" name="ada778388fd9f952e07056fb4c4b96e71"></a>
+void&#160;</td><td class="memItemRight"><b>SetYRotation</b> (float to)</td></tr>
+<tr class="memitem:aca29e454ef6f2f11e4a15aacd211b602" id="r_aca29e454ef6f2f11e4a15aacd211b602"><td class="memItemLeft"><a id="aca29e454ef6f2f11e4a15aacd211b602" name="aca29e454ef6f2f11e4a15aacd211b602"></a>
+void&#160;</td><td class="memItemRight"><b>SetZRotation</b> (float to)</td></tr>
 <tr class="memitem:a12bd8e610e415873c3a9ac7f4c47048e" id="r_a12bd8e610e415873c3a9ac7f4c47048e"><td class="memItemLeft"><a id="a12bd8e610e415873c3a9ac7f4c47048e" name="a12bd8e610e415873c3a9ac7f4c47048e"></a>
 void&#160;</td><td class="memItemRight"><b>Translate</b> (glm::vec3 by)</td></tr>
+<tr class="memitem:a576a3dbbe780a2c359cc1efa86535eaf" id="r_a576a3dbbe780a2c359cc1efa86535eaf"><td class="memItemLeft"><a id="a576a3dbbe780a2c359cc1efa86535eaf" name="a576a3dbbe780a2c359cc1efa86535eaf"></a>
+void&#160;</td><td class="memItemRight"><b>Scale</b> (glm::vec3 by)</td></tr>
+<tr class="memitem:a3a9f4c4d9c0288315ad8e8f6ee45c9ee" id="r_a3a9f4c4d9c0288315ad8e8f6ee45c9ee"><td class="memItemLeft"><a id="a3a9f4c4d9c0288315ad8e8f6ee45c9ee" name="a3a9f4c4d9c0288315ad8e8f6ee45c9ee"></a>
+void&#160;</td><td class="memItemRight"><b>Rotate</b> (float value, glm::vec3 axis)</td></tr>
+<tr class="memitem:a53b48140766a3d21ef163cfd13b40dd0" id="r_a53b48140766a3d21ef163cfd13b40dd0"><td class="memItemLeft"><a id="a53b48140766a3d21ef163cfd13b40dd0" name="a53b48140766a3d21ef163cfd13b40dd0"></a>
+void&#160;</td><td class="memItemRight"><b>Rotate</b> (float x, float y, float z)</td></tr>
 <tr class="inherit_header pub_methods_classSolaris_1_1RenderObject"><td colspan="2">Public Member Functions inherited from <a class="el" href="../../da/d5d/classSolaris_1_1RenderObject.html">Solaris::RenderObject</a></td></tr>
 <tr class="memitem:ae56eec2c87b13d019c985f1ab85e80bc pub_methods_classSolaris_1_1RenderObject" id="r_ae56eec2c87b13d019c985f1ab85e80bc"><td class="memItemLeft">
 &#160;</td><td class="memItemRight"><b>RenderObject</b> (bool _r=false, bool _t=false, bool _c=false, bool _d=false)</td></tr>

@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['use_0',['Use',['../de/d74/classSolaris_1_1Shader.html#ac834d1b19b8102b0a478840498676577',1,'Solaris::Shader']]]
+  ['setglobaltransform_0',['SetGlobalTransform',['../d3/d7b/classSolaris_1_1Renderer.html#a4be7fbe5a1924959502c9c42eb2579e2',1,'Solaris::Renderer']]],
+  ['setshouldclose_1',['SetShouldClose',['../d3/d7b/classSolaris_1_1Renderer.html#a87f07b0b889059f678d4dbedba0a712f',1,'Solaris::Renderer']]],
+  ['shader_2',['Shader',['../de/d74/classSolaris_1_1Shader.html#a61cdd9dc2791f47b5edfda420a8b4d4e',1,'Solaris::Shader']]]
 ];

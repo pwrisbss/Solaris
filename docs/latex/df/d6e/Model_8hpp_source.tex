@@ -15,44 +15,60 @@
 \DoxyCodeLine{00011\ }
 \DoxyCodeLine{00012\ \textcolor{keyword}{namespace\ }Solaris\ \{}
 \DoxyCodeLine{00013\ }
-\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }Model\ :\ \textcolor{keyword}{public}\ RenderObject\ \{}
-\DoxyCodeLine{00015\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00016\ \ \ \ \ glm::vec3\ position;}
-\DoxyCodeLine{00017\ \ \ \ \ glm::mat4\ model\_transform;}
-\DoxyCodeLine{00018\ \ \ \ \ \doxymbox{\hyperlink{structSolaris_1_1CastedResource}{CastedResource<float>}}\ mesh\_data;}
-\DoxyCodeLine{00019\ \ \ \ \ \doxymbox{\hyperlink{structSolaris_1_1CastedResource}{CastedResource<unsigned\ char>}}\ texture\_data;}
-\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{bool}\ transform\_updated\ =\ \textcolor{keyword}{true};}
-\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ meshVBO;}
-\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ modelVAO;}
-\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ texture;}
-\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ vertices\_count;}
-\DoxyCodeLine{00025\ }
-\DoxyCodeLine{00026\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00027\ \ \ \ \ Model(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structSolaris_1_1CastedResource}{CastedResource<float>}}\&\ mesh\_data,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structSolaris_1_1CastedResource}{CastedResource<unsigned\ char>}}\&\ texture\_data,}
-\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ glm::vec3\ initial\_pos\ =\ \{0.0f,\ 0.0f,\ 0.0f\});}
-\DoxyCodeLine{00029\ \ \ \ \ \string~Model();}
-\DoxyCodeLine{00030\ }
-\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{void}\ AttachRender(std::function<\textcolor{keywordtype}{bool}(Model\&)>\ event);}
-\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{void}\ AttachShouldRender(std::function<\textcolor{keywordtype}{bool}(Model\&)>\ event);}
-\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{void}\ AttachTick(std::function<\textcolor{keywordtype}{bool}(Model\&)>\ event);}
-\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{void}\ AttachConstruct(std::function<\textcolor{keywordtype}{bool}(Model\&)>\ event);}
-\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{void}\ AttachDestroy(std::function<\textcolor{keywordtype}{bool}(Model\&)>\ event);}
-\DoxyCodeLine{00036\ }
-\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{bool}\ Render(\doxymbox{\hyperlink{classSolaris_1_1Renderer}{Renderer}}\&);}
-\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{bool}\ Construct(\doxymbox{\hyperlink{classSolaris_1_1Renderer}{Renderer}}\&);}
-\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{bool}\ Destroy(\doxymbox{\hyperlink{classSolaris_1_1Renderer}{Renderer}}\&);}
-\DoxyCodeLine{00040\ }
-\DoxyCodeLine{00041\ \ \ \ \ \textcolor{comment}{//\ getters}}
-\DoxyCodeLine{00042\ \ \ \ \ glm::vec3\ GetPosition();}
-\DoxyCodeLine{00043\ \ \ \ \ glm::mat4\ GetTransform();}
-\DoxyCodeLine{00044\ }
-\DoxyCodeLine{00045\ \ \ \ \ \textcolor{comment}{//\ setters}}
-\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{void}\ SetPosition(glm::vec3\ to);}
-\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{void}\ Translate(glm::vec3\ by);}
-\DoxyCodeLine{00048\ \};}
-\DoxyCodeLine{00049\ }
-\DoxyCodeLine{00050\ \}}
+\DoxyCodeLine{00014\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structSolaris_1_1CastedResource}{CastedResource<unsigned\ char>}}\ NoTexture\ =\ \{0,\ \textcolor{keyword}{nullptr}\};}
+\DoxyCodeLine{00015\ \textcolor{keyword}{const}\ glm::vec3\ XAxis(1.0f,\ 0.0f,\ 0.0f);}
+\DoxyCodeLine{00016\ \textcolor{keyword}{const}\ glm::vec3\ YAxis(0.0f,\ 1.0f,\ 0.0f);}
+\DoxyCodeLine{00017\ \textcolor{keyword}{const}\ glm::vec3\ ZAxis(0.0f,\ 0.0f,\ 1.0f);}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{class\ }Model\ :\ \textcolor{keyword}{public}\ RenderObject\ \{}
+\DoxyCodeLine{00020\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00021\ \ \ \ \ glm::vec3\ position;}
+\DoxyCodeLine{00022\ \ \ \ \ glm::vec3\ scale;}
+\DoxyCodeLine{00023\ \ \ \ \ glm::mat4\ model\_transform;}
+\DoxyCodeLine{00024\ \ \ \ \ \doxymbox{\hyperlink{structSolaris_1_1CastedResource}{CastedResource<float>}}\ mesh\_data;}
+\DoxyCodeLine{00025\ \ \ \ \ \doxymbox{\hyperlink{structSolaris_1_1CastedResource}{CastedResource<unsigned\ char>}}\ texture\_data;}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{bool}\ transform\_updated\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{float}\ rotx;}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{float}\ roty;}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{float}\ rotz;}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ meshVBO;}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ modelVAO;}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ texture;}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ vertices\_count;}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00036\ \ \ \ \ Model(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structSolaris_1_1CastedResource}{CastedResource<float>}}\&\ mesh\_data,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structSolaris_1_1CastedResource}{CastedResource<unsigned\ char>}}\&\ texture\_data,}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ glm::vec3\ initial\_pos\ =\ \{0.0f,\ 0.0f,\ 0.0f\});}
+\DoxyCodeLine{00038\ \ \ \ \ \string~Model();}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{bool}\ Render(\doxymbox{\hyperlink{classSolaris_1_1Renderer}{Renderer}}\&);}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{bool}\ Construct(\doxymbox{\hyperlink{classSolaris_1_1Renderer}{Renderer}}\&);}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{bool}\ Destroy(\doxymbox{\hyperlink{classSolaris_1_1Renderer}{Renderer}}\&);}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{comment}{//\ getters}}
+\DoxyCodeLine{00045\ \ \ \ \ glm::vec3\ GetPosition();}
+\DoxyCodeLine{00046\ \ \ \ \ glm::vec3\ GetScale();}
+\DoxyCodeLine{00047\ \ \ \ \ glm::mat4\ GetTransform();}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{float}\ GetXRotation();}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{float}\ GetYRotation();}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{float}\ GetZRotation();}
 \DoxyCodeLine{00051\ }
-\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ SOLARIS\_MODEL\_OBJECT\_H}}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{comment}{//\ setters}}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{void}\ SetPosition(glm::vec3\ to);}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{void}\ SetScale(glm::vec3\ to);}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{void}\ SetRotation(\textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ y,\ \textcolor{keywordtype}{float}\ z);}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{void}\ SetXRotation(\textcolor{keywordtype}{float}\ to);}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{void}\ SetYRotation(\textcolor{keywordtype}{float}\ to);}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{void}\ SetZRotation(\textcolor{keywordtype}{float}\ to);}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{void}\ Translate(glm::vec3\ by);}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{void}\ Scale(glm::vec3\ by);}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{void}\ Rotate(\textcolor{keywordtype}{float}\ value,\ glm::vec3\ axis);}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{void}\ Rotate(\textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ y,\ \textcolor{keywordtype}{float}\ z);}
+\DoxyCodeLine{00064\ \};}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ SOLARIS\_MODEL\_OBJECT\_H}}
 
 \end{DoxyCode}

@@ -114,14 +114,104 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d5/d8d/structS
   <div class="headertitle"><div class="title">Solaris::Resource Struct Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Holds information about a specific resource.  
+ <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="../../dd/dd9/ResourceMan_8hpp_source.html">ResourceMan.hpp</a>&gt;</code></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:add07d2bd21a747ab7ead67940e0d12d5" id="r_add07d2bd21a747ab7ead67940e0d12d5"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#add07d2bd21a747ab7ead67940e0d12d5">operator==</a> (const <a class="el" href="../../d5/d8d/structSolaris_1_1Resource.html">Resource</a> &amp;other)</td></tr>
+<tr class="memdesc:add07d2bd21a747ab7ead67940e0d12d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the other <a class="el" href="../../d5/d8d/structSolaris_1_1Resource.html" title="Holds information about a specific resource.">Resource</a> points to the same memory block with the same size as this <a class="el" href="../../d5/d8d/structSolaris_1_1Resource.html" title="Holds information about a specific resource.">Resource</a>.  <br /></td></tr>
+<tr class="memitem:af069c96d9e354a20d39e8ae5be7cc1eb" id="r_af069c96d9e354a20d39e8ae5be7cc1eb"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#af069c96d9e354a20d39e8ae5be7cc1eb">operator!=</a> (const <a class="el" href="../../d5/d8d/structSolaris_1_1Resource.html">Resource</a> &amp;other)</td></tr>
+<tr class="memdesc:af069c96d9e354a20d39e8ae5be7cc1eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the other <a class="el" href="../../d5/d8d/structSolaris_1_1Resource.html" title="Holds information about a specific resource.">Resource</a> doesn't point to the same memory block and/or isn't the same size as this <a class="el" href="../../d5/d8d/structSolaris_1_1Resource.html" title="Holds information about a specific resource.">Resource</a>.  <br /></td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:aacea860ada864b30e4c0acc3379c971b" id="r_aacea860ada864b30e4c0acc3379c971b"><td class="memItemLeft"><a id="aacea860ada864b30e4c0acc3379c971b" name="aacea860ada864b30e4c0acc3379c971b"></a>
 unsigned long&#160;</td><td class="memItemRight"><b>size</b></td></tr>
+<tr class="memdesc:aacea860ada864b30e4c0acc3379c971b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size of the resource data in bytes. <br /></td></tr>
 <tr class="memitem:a3db9883e15e21d1bace7037f514d5b0d" id="r_a3db9883e15e21d1bace7037f514d5b0d"><td class="memItemLeft"><a id="a3db9883e15e21d1bace7037f514d5b0d" name="a3db9883e15e21d1bace7037f514d5b0d"></a>
 void *&#160;</td><td class="memItemRight"><b>pdata</b></td></tr>
+<tr class="memdesc:a3db9883e15e21d1bace7037f514d5b0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to resource data. <br /></td></tr>
 </table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Holds information about a specific resource. </p>
+<p>In other words, an object of type <a class="el" href="../../d5/d8d/structSolaris_1_1Resource.html" title="Holds information about a specific resource.">Resource</a> is a vector pointing to a memory block (that is, the size of the memory block and a pointer to the start of said memory block). Comparing <a class="el" href="../../d5/d8d/structSolaris_1_1Resource.html" title="Holds information about a specific resource.">Resource</a> objects are supported. </p>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="af069c96d9e354a20d39e8ae5be7cc1eb" name="af069c96d9e354a20d39e8ae5be7cc1eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af069c96d9e354a20d39e8ae5be7cc1eb">&#9670;&#160;</a></span>operator!=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Solaris::Resource::operator!= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d5/d8d/structSolaris_1_1Resource.html">Resource</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Check if the other <a class="el" href="../../d5/d8d/structSolaris_1_1Resource.html" title="Holds information about a specific resource.">Resource</a> doesn't point to the same memory block and/or isn't the same size as this <a class="el" href="../../d5/d8d/structSolaris_1_1Resource.html" title="Holds information about a specific resource.">Resource</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Reference to the <a class="el" href="../../d5/d8d/structSolaris_1_1Resource.html" title="Holds information about a specific resource.">Resource</a> object being compared against. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the other <a class="el" href="../../d5/d8d/structSolaris_1_1Resource.html" title="Holds information about a specific resource.">Resource</a> doesn't point to the same memory block and/or isn't the same size as this <a class="el" href="../../d5/d8d/structSolaris_1_1Resource.html" title="Holds information about a specific resource.">Resource</a> </dd>
+<dd>
+false if otherwise </dd></dl>
+
+</div>
+</div>
+<a id="add07d2bd21a747ab7ead67940e0d12d5" name="add07d2bd21a747ab7ead67940e0d12d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add07d2bd21a747ab7ead67940e0d12d5">&#9670;&#160;</a></span>operator==()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Solaris::Resource::operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d5/d8d/structSolaris_1_1Resource.html">Resource</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Check if the other <a class="el" href="../../d5/d8d/structSolaris_1_1Resource.html" title="Holds information about a specific resource.">Resource</a> points to the same memory block with the same size as this <a class="el" href="../../d5/d8d/structSolaris_1_1Resource.html" title="Holds information about a specific resource.">Resource</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Reference to the <a class="el" href="../../d5/d8d/structSolaris_1_1Resource.html" title="Holds information about a specific resource.">Resource</a> object being compared against. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the two <span class="tt"><a class="el" href="../../d5/d8d/structSolaris_1_1Resource.html" title="Holds information about a specific resource.">Resource</a></span>s point to the same memory block with the same size. </dd>
+<dd>
+false if otherwise. </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li><a class="el" href="../../dd/dd9/ResourceMan_8hpp_source.html">ResourceMan.hpp</a></li>
 </ul>
