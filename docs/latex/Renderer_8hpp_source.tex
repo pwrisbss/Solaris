@@ -1,0 +1,68 @@
+\doxysection{Renderer.\+hpp}
+\hypertarget{Renderer_8hpp_source}{}\label{Renderer_8hpp_source}\index{Renderer.hpp@{Renderer.hpp}}
+\doxymbox{\hyperlink{Renderer_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ SOLARIS\_RENDERER\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ SOLARIS\_RENDERER\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00014\ \ }
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#include\ <functional>}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#include\ <glad/glad.h>}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#include\ <GLFW/glfw3.h>}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#include\ <glm/glm.hpp>}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#include\ <glm/gtc/type\_ptr.hpp>}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#include\ <glm/gtc/matrix\_transform.hpp>}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#include\ <Shader/Shader.hpp>}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{RenderObjects_8hpp}{RenderObjects.hpp}}"{}}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{keyword}{namespace\ }Solaris\ \{}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classSolaris_1_1Renderer}{Renderer}};}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{keyword}{typedef}\ std::function<bool(\doxymbox{\hyperlink{classSolaris_1_1Renderer}{Renderer}}\&)>\ RendererTickEvent;}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00059\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classSolaris_1_1Renderer_ae0c14c1129ce69aab3350769d9a95a19}{Renderer}}\ \{}
+\DoxyCodeLine{00060\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00061\ \ \ \ \ std::vector<RendererTickEvent>\ events;}
+\DoxyCodeLine{00062\ \ \ \ \ std::vector<RenderObject*>\ objects;}
+\DoxyCodeLine{00063\ \ \ \ \ glm::mat4\ global\_transform;\ \textcolor{comment}{//\ sends\ this\ as\ \`{}uniform\ mat4\ global\_transform'\ to\ the\ active\ shader}}
+\DoxyCodeLine{00064\ \ \ \ \ \doxymbox{\hyperlink{classSolaris_1_1Shader}{Shader}}\ *\ shader;}
+\DoxyCodeLine{00065\ \ \ \ \ GLFWwindow\ *\ window;}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00078\ \ \ \ \ \doxymbox{\hyperlink{classSolaris_1_1Renderer_ae0c14c1129ce69aab3350769d9a95a19}{Renderer}}(std::string\ window\_title,\ \textcolor{keywordtype}{int}\ window\_width,\ \textcolor{keywordtype}{int}\ window\_height);}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00092\ \ \ \ \ \doxymbox{\hyperlink{classSolaris_1_1Renderer_a3cc8fbd9b0516a00dc4bbfeb9a1147f5}{Renderer}}(std::string\ window\_title,\ \textcolor{keywordtype}{int}\ window\_width,\ \textcolor{keywordtype}{int}\ window\_height,\ \doxymbox{\hyperlink{classSolaris_1_1Shader}{Shader}}\&\ shader);}
+\DoxyCodeLine{00093\ \ \ \ \ \doxymbox{\hyperlink{classSolaris_1_1Renderer_ae0c14c1129ce69aab3350769d9a95a19}{\string~Renderer}}();}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classSolaris_1_1Renderer_a184173df71483527866440d110b56923}{Tick}}();}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classSolaris_1_1Renderer_a8fbc9e800d6a9f8e6b5ff1dbecc17f64}{AddTickEvent}}(RendererTickEvent\ event\_func);}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{comment}{//\ getters}}
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{classSolaris_1_1Renderer_aef612cad27bc95774859c7b5b3900bac}{GetShouldClose}}();}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00126\ \ \ \ \ GLFWwindow\ *\ \doxymbox{\hyperlink{classSolaris_1_1Renderer_a50695b9727510ad53b4a1b6bc74a2eff}{GetGLFWWindow}}();}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00134\ \ \ \ \ \doxymbox{\hyperlink{classSolaris_1_1Shader}{Shader}}\ *\ \doxymbox{\hyperlink{classSolaris_1_1Renderer_a2e6ce1c772e1a16ea6d92bc7e15a41fb}{GetShaderPtr}}();}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{comment}{//\ setters}}
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classSolaris_1_1Renderer_a87f07b0b889059f678d4dbedba0a712f}{SetShouldClose}}(\textcolor{keywordtype}{bool}\ value);}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00151\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classSolaris_1_1Renderer_a4be7fbe5a1924959502c9c42eb2579e2}{SetGlobalTransform}}(glm::mat4\ set\_to);}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00165\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classSolaris_1_1Renderer_ac8cc018ddf805859fa3858c9cc06bb38}{AttachShader}}(\doxymbox{\hyperlink{classSolaris_1_1Shader}{Shader}}\&\ shader);}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00174\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classSolaris_1_1Renderer_a8abbd4cb4a30cabc933207ca9b671ee0}{AttachRenderObject}}(\doxymbox{\hyperlink{classSolaris_1_1RenderObject}{RenderObject}}\ *\ \textcolor{keywordtype}{object});}
+\DoxyCodeLine{00175\ \};}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00177\ \}}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00179\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ SOLARIS\_RENDERER\_H}}
+
+\end{DoxyCode}

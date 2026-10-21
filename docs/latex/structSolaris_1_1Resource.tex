@@ -1,0 +1,82 @@
+\doxysection{Solaris::Resource Struct Reference}
+\hypertarget{structSolaris_1_1Resource}{}\label{structSolaris_1_1Resource}\index{Solaris::Resource@{Solaris::Resource}}
+
+
+Holds information about a specific resource.  
+
+
+
+
+{\ttfamily \+\#include $<$Resource\+Man.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \doxymbox{\hyperlink{structSolaris_1_1Resource_add07d2bd21a747ab7ead67940e0d12d5}{operator==}} (const \doxymbox{\hyperlink{structSolaris_1_1Resource}{Resource}} \&other)
+\begin{DoxyCompactList}\small\item\em Check if the other \doxylink{structSolaris_1_1Resource}{Resource} points to the same memory block with the same size as this \doxylink{structSolaris_1_1Resource}{Resource}. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{structSolaris_1_1Resource_af069c96d9e354a20d39e8ae5be7cc1eb}{operator!=}} (const \doxymbox{\hyperlink{structSolaris_1_1Resource}{Resource}} \&other)
+\begin{DoxyCompactList}\small\item\em Check if the other \doxylink{structSolaris_1_1Resource}{Resource} doesn\textquotesingle{}t point to the same memory block and/\+or isn\textquotesingle{}t the same size as this \doxylink{structSolaris_1_1Resource}{Resource}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{structSolaris_1_1Resource_aacea860ada864b30e4c0acc3379c971b}\label{structSolaris_1_1Resource_aacea860ada864b30e4c0acc3379c971b} 
+unsigned long {\bfseries size}
+\begin{DoxyCompactList}\small\item\em Size of the resource data in bytes. \end{DoxyCompactList}\item 
+\Hypertarget{structSolaris_1_1Resource_a3db9883e15e21d1bace7037f514d5b0d}\label{structSolaris_1_1Resource_a3db9883e15e21d1bace7037f514d5b0d} 
+void \texorpdfstring{$\ast$}{*} {\bfseries pdata}
+\begin{DoxyCompactList}\small\item\em Pointer to resource data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Holds information about a specific resource. 
+
+In other words, an object of type \doxylink{structSolaris_1_1Resource}{Resource} is a vector pointing to a memory block (that is, the size of the memory block and a pointer to the start of said memory block). Comparing \doxylink{structSolaris_1_1Resource}{Resource} objects are supported. 
+
+\label{structSolaris_1_1Resource_doc-func-members}
+\Hypertarget{structSolaris_1_1Resource_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{structSolaris_1_1Resource_af069c96d9e354a20d39e8ae5be7cc1eb}\index{Solaris::Resource@{Solaris::Resource}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!Solaris::Resource@{Solaris::Resource}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily \label{structSolaris_1_1Resource_af069c96d9e354a20d39e8ae5be7cc1eb} 
+bool Solaris::\+\+Resource::\+operator!= (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{structSolaris_1_1Resource}{Resource}} \&}]{other}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Check if the other \doxylink{structSolaris_1_1Resource}{Resource} doesn\textquotesingle{}t point to the same memory block and/\+or isn\textquotesingle{}t the same size as this \doxylink{structSolaris_1_1Resource}{Resource}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Reference to the \doxylink{structSolaris_1_1Resource}{Resource} object being compared against. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the other \doxylink{structSolaris_1_1Resource}{Resource} doesn\textquotesingle{}t point to the same memory block and/\+or isn\textquotesingle{}t the same size as this \doxylink{structSolaris_1_1Resource}{Resource} 
+
+false if otherwise 
+\end{DoxyReturn}
+\Hypertarget{structSolaris_1_1Resource_add07d2bd21a747ab7ead67940e0d12d5}\index{Solaris::Resource@{Solaris::Resource}!operator==@{operator==}}
+\index{operator==@{operator==}!Solaris::Resource@{Solaris::Resource}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily \label{structSolaris_1_1Resource_add07d2bd21a747ab7ead67940e0d12d5} 
+bool Solaris::\+\+Resource::\+operator== (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{structSolaris_1_1Resource}{Resource}} \&}]{other}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Check if the other \doxylink{structSolaris_1_1Resource}{Resource} points to the same memory block with the same size as this \doxylink{structSolaris_1_1Resource}{Resource}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Reference to the \doxylink{structSolaris_1_1Resource}{Resource} object being compared against. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the two {\ttfamily \doxylink{structSolaris_1_1Resource}{Resource}}s point to the same memory block with the same size. 
+
+false if otherwise. 
+\end{DoxyReturn}
+
+
+The documentation for this struct was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{ResourceMan_8hpp}{Resource\+Man.\+hpp}}\end{DoxyCompactItemize}

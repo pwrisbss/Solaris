@@ -26,24 +26,24 @@ var NAVTREE =
 [
   [ "Solaris", "index.html", [
     [ "The Solaris Game Engine", "index.html", null ],
-    [ "The Solaris Renderer", "df/dc4/renderer.html", null ],
-    [ "Render Objects", "da/d0e/renderobject.html", [
-      [ "Defining Render Objects", "da/d0e/renderobject.html#renderobject-definition", [
-        [ "Polymorphism", "da/d0e/renderobject.html#renderobject-definition-polymorphism", null ],
-        [ "Relationship with Siblings", "da/d0e/renderobject.html#renderobject-definition-siblings", null ]
+    [ "The Solaris Renderer", "renderer.html", null ],
+    [ "Render Objects", "renderobject.html", [
+      [ "Defining Render Objects", "renderobject.html#renderobject-definition", [
+        [ "Polymorphism", "renderobject.html#renderobject-definition-polymorphism", null ],
+        [ "Relationship with Siblings", "renderobject.html#renderobject-definition-siblings", null ]
       ] ]
     ] ],
-    [ "Resource Management", "dc/d2f/resourceman.html", [
-      [ "Resources", "dc/d2f/resourceman.html#resourceman-resource", [
-        [ "The Resource Type", "dc/d2f/resourceman.html#resourceman-typename-resource", null ],
-        [ "The CastedResource Type", "dc/d2f/resourceman.html#resourceman-typename-castedresource", [
-          [ "Casting Resources", "dc/d2f/resourceman.html#resourceman-casting-resources", null ]
+    [ "Resource Management", "resourceman.html", [
+      [ "Resources", "resourceman.html#resourceman-resource", [
+        [ "The Resource Type", "resourceman.html#resourceman-typename-resource", null ],
+        [ "The CastedResource Type", "resourceman.html#resourceman-typename-castedresource", [
+          [ "Casting Resources", "resourceman.html#resourceman-casting-resources", null ]
         ] ]
       ] ],
-      [ "The Resource Manager", "dc/d2f/resourceman.html#resourceman-the-resource-manager", null ]
+      [ "The Resource Manager", "resourceman.html#resourceman-the-resource-manager", null ]
     ] ],
-    [ "Todo List", "dd/da0/todo.html", null ],
-    [ "Bug List", "de/da5/bug.html", null ],
+    [ "Todo List", "todo.html", null ],
+    [ "Bug List", "bug.html", null ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
@@ -62,7 +62,7 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"annotated.html"
+"Camera_8hpp_source.html"
 ];
 
 const SYNCONMSG = 'click to disable panel synchronization';

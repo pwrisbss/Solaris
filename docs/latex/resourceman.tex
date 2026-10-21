@@ -1,0 +1,78 @@
+\chapter{Resource Management }
+\hypertarget{resourceman}{}\label{resourceman}\index{Resource Management@{Resource Management}}
+Resources and resource management are both very crucial components of Solaris. You will encounter a lot of Solaris components which you\textquotesingle{}ll need to assign resource(s) to for them to function properly.\hypertarget{resourceman_resourceman-resource}{}\doxysection{\texorpdfstring{Resources}{Resources}}\label{resourceman_resourceman-resource}
+A resource is any memory block which Solaris does not explicitly define its size. Some of the things that fall in this category are: texture data, mesh data, an array of integers, shader source code, etc. to name a few.
+
+To define a resource in Solaris, you must use the {\ttfamily Resource} or {\ttfamily Casted\+Resource} type. The difference between these two resource types will be explained further on.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <\doxymbox{\hyperlink{ResourceMan_8hpp}{ResourceMan/ResourceMan.hpp}}>}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ arr[]\ =\ \{\ 0,\ 1,\ 2,\ 3,\ 4,\ 5\ \};}
+\DoxyCodeLine{Resource\ foo\ =\ \{}
+\DoxyCodeLine{\ \ \ \ .size\ =\ \textcolor{keyword}{sizeof}(arr),\ \ \ \ \ \textcolor{comment}{//\ size\ of\ the\ resource\ in\ bytes}}
+\DoxyCodeLine{\ \ \ \ .pdata\ =\ (\textcolor{keywordtype}{void}*)arr\ \ \ \ \ \ \textcolor{comment}{//\ a\ void\ pointer\ to\ the\ beginning\ of\ the\ resource}}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{char}\ some\_cstring[]\ =\ \textcolor{stringliteral}{"{}Hello\ World!"{}};}
+\DoxyCodeLine{CastedResource<char>\ bar\ =\ \{}
+\DoxyCodeLine{\ \ \ \ .len\ =\ \textcolor{keyword}{sizeof}(some\_cstring)\ /\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}),\ \ \ \ \ \textcolor{comment}{//\ number\ of\ \`{}char'\ elements\ in\ this\ resource}}
+\DoxyCodeLine{\ \ \ \ .pdata\ =\ some\_cstring\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ a\ \`{}char*'\ pointer\ to\ the\ beginning\ of\ the}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ resource\ (no\ casting\ needed\ here)}}
+\DoxyCodeLine{\};}
+
+\end{DoxyCode}
+\hypertarget{resourceman_resourceman-typename-resource}{}\doxysubsection{\texorpdfstring{The Resource Type}{The Resource Type}}\label{resourceman_resourceman-typename-resource}
+The {\ttfamily Resource} type is conventionally used for resources with unspecified data types, or as a generic resource type. Most Solaris functions will expect a resource with a known data type (e.\+g., the {\ttfamily Model} \doxysectlink{renderobject}{render object}{0} expects a {\ttfamily Casted\+Resource\texorpdfstring{$<$}{<}float\texorpdfstring{$>$}{>}} as its mesh data, and {\ttfamily Casted\+Resource\texorpdfstring{$<$}{<}unsigned char\texorpdfstring{$>$}{>}} as its texture). As such, one could say that the {\ttfamily Resource} type acts mostly as an intermediary type.\hypertarget{resourceman_resourceman-typename-castedresource}{}\doxysubsection{\texorpdfstring{The Casted\+Resource Type}{The Casted\+Resource Type}}\label{resourceman_resourceman-typename-castedresource}
+The {\ttfamily Casted\+Resource} type is used for resources with known data types. {\ttfamily Casted\+Resource} accepts a {\ttfamily typename} template parameter, the value of which is used to determine the pointer type of the resource.
+
+The two key differences between a {\ttfamily Casted\+Resource} and a {\ttfamily Resource} is that, first, unlike the {\ttfamily Resource} type, {\ttfamily Casted\+Resource} isn\textquotesingle{}t necessarily supposed to hold a {\ttfamily void} pointer to the resource; rather, it is up to the programmer to specify what type of resource the {\ttfamily Casted\+Resource} is pointing to; and second, instead of a {\ttfamily size} property, {\ttfamily Casted\+Resource} holds a {\ttfamily len} property which determines how many values the resource is holding. i.\+e., assuming the resource is an array, {\ttfamily len} is how many elements the array is holding\hypertarget{resourceman_resourceman-casting-resources}{}\doxysubsubsection{\texorpdfstring{Casting Resources}{Casting Resources}}\label{resourceman_resourceman-casting-resources}
+Consider the following example of manually casting a {\ttfamily Resource} to a {\ttfamily Casted\+Resource\texorpdfstring{$<$}{<}int\texorpdfstring{$>$}{>}}.
+
+\begin{DoxyAttention}{Attention}
+It\textquotesingle{}s not recommended and heavily discouraged to manually cast a {\ttfamily Resource} type. Instead, one must use the {\ttfamily Cast\+Resource} function to do so, which will be expanded upon later.
+\end{DoxyAttention}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <\doxymbox{\hyperlink{ResourceMan_8hpp}{ResourceMan/ResourceMan.hpp}}>}}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ data[]\ =\ \{\ 0,\ 1,\ 2,\ 3,\ 4,\ 5\ \};}
+\DoxyCodeLine{}
+\DoxyCodeLine{Resource\ uncasted\ =\ \{}
+\DoxyCodeLine{\ \ \ \ .size\ =\ \textcolor{keyword}{sizeof}(data),}
+\DoxyCodeLine{\ \ \ \ .pdata\ =\ (\textcolor{keywordtype}{void}*)data}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{CastedResource<int>\ casted\ =\ \{}
+\DoxyCodeLine{\ \ \ \ .len\ =\ uncasted.size\ /\ \textcolor{keyword}{sizeof}(int),\ \ \ \ \ \textcolor{comment}{//\ get\ the\ \#\ of\ elements\ in\ array}}
+\DoxyCodeLine{\ \ \ \ .pdata\ =\ data\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ no\ need\ for\ casting\ -\/-\/\ resource\ is\ already}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ of\ the\ expected\ type}}
+\DoxyCodeLine{\};}
+
+\end{DoxyCode}
+
+
+As specified above, this is a highly discouraged practice. One must instead use Solaris\textquotesingle{}s own casting function, {\ttfamily Cast\+Resource}:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{...}
+\DoxyCodeLine{CastedResource<\textcolor{keywordtype}{int}>\ casted\ =\ CastResource<int>(uncasted);}
+
+\end{DoxyCode}
+
+
+In the example above, we used the previously-\/defined resource {\ttfamily uncasted}, but instead of casting it manually, we used the {\ttfamily Cast\+Resource} function. {\ttfamily Cast\+Resource} accepts a single {\ttfamily typename} template parameter, a single {\ttfamily Resource} parameter , and returns a {\ttfamily Casted\+Resource} casted to the specified typename.\hypertarget{resourceman_resourceman-the-resource-manager}{}\doxysection{\texorpdfstring{The Resource Manager}{The Resource Manager}}\label{resourceman_resourceman-the-resource-manager}
+\begin{DoxyRefDesc}{Todo}
+\item[\doxymbox{\hyperlink{todo__todo000002}{Todo}}]find someone to document ts for u cuz i aint doing this\end{DoxyRefDesc}
+
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{classSolaris_1_1ResourceMan}{Solaris::\+\+Resource\+Man} 
+
+\doxylink{structSolaris_1_1Resource}{Solaris::\+\+Resource} 
+
+\doxylink{structSolaris_1_1CastedResource}{Solaris::\+\+Casted\+Resource} 
+
+\doxylink{ResourceMan_8hpp_a60230f3d6f22a8ff097ff764af582a6a}{Solaris::\+\+Cast\+Resource} 
+\end{DoxySeeAlso}

@@ -1,0 +1,38 @@
+\doxysection{Render\+Objects.\+hpp}
+\hypertarget{RenderObjects_8hpp_source}{}\label{RenderObjects_8hpp_source}\index{RenderObjects.hpp@{RenderObjects.hpp}}
+\doxymbox{\hyperlink{RenderObjects_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#ifndef\ SOLARIS\_RENDEREROBJECTS\_H}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ SOLARIS\_RENDEREROBJECTS\_H}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <\doxymbox{\hyperlink{ResourceMan_8hpp}{ResourceMan/ResourceMan.hpp}}>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <functional>}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{namespace\ }Solaris\ \{}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classSolaris_1_1Renderer}{Renderer}};}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00077\ \textcolor{keyword}{class\ }RenderObject\ \{}
+\DoxyCodeLine{00078\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00079\ \ \ \ \ RenderObject(\textcolor{keywordtype}{bool}\ \_r\ =\ \textcolor{keyword}{false},\ \textcolor{keywordtype}{bool}\ \_t\ =\ \textcolor{keyword}{false},\ \textcolor{keywordtype}{bool}\ \_c\ =\ \textcolor{keyword}{false},\ \textcolor{keywordtype}{bool}\ \_d\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00080\ \ \ \ \ \string~RenderObject();}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{bool}\ renderable;}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{bool}\ tickable;}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{bool}\ constructible;}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordtype}{bool}\ destructible;}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ Render(\doxymbox{\hyperlink{classSolaris_1_1Renderer}{Renderer}}\&);}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ Tick(\doxymbox{\hyperlink{classSolaris_1_1Renderer}{Renderer}}\&);}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ Construct(\doxymbox{\hyperlink{classSolaris_1_1Renderer}{Renderer}}\&);}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ Destroy(\doxymbox{\hyperlink{classSolaris_1_1Renderer}{Renderer}}\&);}
+\DoxyCodeLine{00091\ \};}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \}}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ SOLARIS\_RENDEREROBJECTS\_H}}
+
+\end{DoxyCode}
