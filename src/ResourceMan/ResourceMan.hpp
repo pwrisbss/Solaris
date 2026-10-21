@@ -15,6 +15,8 @@
  * Resources and resource management are both very crucial components of Solaris. You will encounter a lot of Solaris
  * components which you'll need to assign resource(s) to for them to function properly.
  *
+ * @tableofcontents{HTML}
+ *
  * @section resourceman-resource Resources
  *
  * A resource is any memory block which Solaris does not explicitly define its size. Some of the things that fall in

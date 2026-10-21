@@ -23,6 +23,8 @@ class Renderer;
  *
  * A Render Object is any object of any type derived from the `Solaris::RenderObject` base class.
  *
+ * @tableofcontents
+ *
  * @section renderobject-definition Defining Render Objects
  * @subsection renderobject-definition-polymorphism Polymorphism
  * A Render Object is defined as an object that can be pointed to by a `Solaris::RenderObject*`.
