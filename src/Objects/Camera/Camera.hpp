@@ -60,8 +60,10 @@ public:
 	// camera transformation
 	glm::vec3 GetPosition();
 	glm::vec3 GetRotation();
+	glm::vec3 GetLookAt();
 	void SetPosition(glm::vec3 to);
 	void SetRotation(glm::vec3 to);
+	void SetLookAt(glm::vec3 to);
 	void Translate(glm::vec3 by);
 	void Rotate(glm::vec3 by);
 };

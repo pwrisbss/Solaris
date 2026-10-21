@@ -72,6 +72,8 @@ glm::vec3 Camera::GetRotation() {
 void Camera::SetPosition(glm::vec3 to) {
 	this->position = to;
 
+	this->view = glm::lookAt(this->position, this->looking_at + this->cam_front, this->up);
+
 	this->camera_updated = true;
 }
 
