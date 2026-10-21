@@ -61,4 +61,23 @@ bool Camera::Destroy(Renderer&) {
 	return false;
 }
 
+glm::vec3 Camera::GetPosition() {
+	return this->position;
+}
+
+glm::vec3 Camera::GetRotation() {
+	return this->rotation;
+}
+
+void Camera::SetPosition(glm::vec3 to) {
+	this->position = to;
+
+	this->camera_updated = true;
+}
+
+void Camera::SetRotation(glm::vec3 to) {
+	this->rotation = to;
+	this->camera_updated = true;
+}
+
 }

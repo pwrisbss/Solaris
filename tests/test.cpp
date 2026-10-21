@@ -80,7 +80,7 @@ int main() {
 	SOL::ResourceMan resman;
 	SOL::Shader shader(vertex_shader, fragment_shader);
 	SOL::Camera cam(SOL::CameraProperties {
-		.position = {-1.0f, 1.0f, 1.0f},
+		.position = {0.0f, 1.0f, 0.0f},
 		.looking_at = {0.0f, 0.0f, 0.0f},
 		.fov = glm::radians(60.0f),
 		.aspect_ratio = 800.0f / 600.0f,
@@ -88,10 +88,20 @@ int main() {
 
 	unsigned mesh_resource_key = resman.OwnResource(cube_mesh, sizeof(cube_mesh));
 	auto mesh_resource = resman.FetchCasted<float>(mesh_resource_key);
-	SOL::Model model(mesh_resource, SOL::NoTexture);
+	SOL::Model model0(mesh_resource, SOL::NoTexture);
+	// SOL::Model model1(mesh_resource, SOL::NoTexture);
+	// SOL::Model model2(mesh_resource, SOL::NoTexture);
+	// SOL::Model model3(mesh_resource, SOL::NoTexture);
+	model0.SetPosition({ 0.0f, 0.0f, 0.0f });
+	// model1.SetPosition({ 1.0f, 1.0f, 0.5f });
+	// model2.SetPosition({ -1.0f, -1.0f, -0.5f });
+	// model3.SetPosition({ 1.0f, 0.0f, 0.5f });
 
 	render.AttachShader(shader);
-	render.AttachRenderObject(&model);
+	render.AttachRenderObject(&model0);
+	// render.AttachRenderObject(&model1);
+	// render.AttachRenderObject(&model2);
+	// render.AttachRenderObject(&model3);
 	render.AttachRenderObject(&cam);
 	render.AddTickEvent(renderer_tick);
 
@@ -99,9 +109,15 @@ int main() {
 
     while (!render.GetShouldClose()) {
 		render.Tick();
-		model.Rotate(0.01f, SOL::XAxis);
-		model.SetPosition({ std::sin(glfwGetTime()), 0.0f, 0.0f });
+		// model0.Rotate(0.01f, SOL::XAxis);
+		// model0.SetPosition({ std::sin(glfwGetTime()), 0.0f, 0.0f });
 		// model.Translate({ 0.01f, 0.0f, 0.0f });
+		cam.ApplyProperties(SOL::CameraProperties {
+		.position = {0.0f, 0.0f, std::sin(glfwGetTime()) + 0.5f},
+		.looking_at = {0.0f, 0.0f, 0.0f},
+		.fov = glm::radians(60.0f),
+		.aspect_ratio = 800.0f / 600.0f,
+	});
 	}
 
 	return 0;
