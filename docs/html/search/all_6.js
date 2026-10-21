@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['management_0',['Resource Management',['../dc/d2f/resourceman.html',1,'']]],
-  ['manager_1',['The Resource Manager',['../dc/d2f/resourceman.html#resourceman-the-resource-manager',1,'']]],
-  ['model_2',['Model',['../de/d8e/classSolaris_1_1Model.html',1,'Solaris']]]
+  ['len_0',['len',['../df/d2c/structSolaris_1_1CastedResource.html#a7ddb3c50a4398659383613b17db83c26',1,'Solaris::CastedResource']]],
+  ['list_1',['List',['../de/da5/bug.html',1,'Bug List'],['../dd/da0/todo.html',1,'Todo List']]]
 ];

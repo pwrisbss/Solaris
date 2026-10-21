@@ -15,53 +15,65 @@
 \DoxyCodeLine{00011\ \textcolor{keyword}{namespace\ }Solaris\ \{}
 \DoxyCodeLine{00012\ }
 \DoxyCodeLine{00013\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{structSolaris_1_1CameraProperties}{CameraProperties}}\ \{}
-\DoxyCodeLine{00014\ \ \ \ \ glm::vec3\ initial\_pos\ =\ \{0.0f,\ 0.0f,\ 0.0f\};}
+\DoxyCodeLine{00014\ \ \ \ \ glm::vec3\ position\ =\ \{0.0f,\ 0.0f,\ 0.0f\};}
 \DoxyCodeLine{00015\ \ \ \ \ glm::vec3\ up\_vector\ =\ \{0.0f,\ 1.0f,\ 0.0f\};}
-\DoxyCodeLine{00016\ \ \ \ \ glm::vec3\ front\_vector;}
-\DoxyCodeLine{00017\ \ \ \ \ glm::vec3\ looking\_at;}
-\DoxyCodeLine{00018\ \ \ \ \ }
-\DoxyCodeLine{00019\ \ \ \ \ \textcolor{comment}{//\ projection\ properties}}
-\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{bool}\ perspective\ =\ \textcolor{keyword}{true};}
-\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{float}\ near\_clip\ =\ 0.1f;}
-\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{float}\ far\_clip\ =\ 1000.0f;}
-\DoxyCodeLine{00023\ }
-\DoxyCodeLine{00024\ \ \ \ \ \textcolor{comment}{//\ perspective-\/specific}}
-\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{float}\ fov\ =\ 60.0f;}
-\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{float}\ aspect\_ratio\ =\ 800.0f\ /\ 600.0f;}
-\DoxyCodeLine{00027\ }
-\DoxyCodeLine{00028\ \ \ \ \ \textcolor{comment}{//\ ortho-\/specific}}
-\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{float}\ left;}
-\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{float}\ right;}
-\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{float}\ bottom;}
-\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{float}\ top;}
-\DoxyCodeLine{00033\ \}\ \doxymbox{\hyperlink{structSolaris_1_1CameraProperties}{CameraProperties}};}
-\DoxyCodeLine{00034\ }
-\DoxyCodeLine{00035\ \textcolor{keyword}{class\ }Camera\ :\ \textcolor{keyword}{public}\ RenderObject\ \{}
-\DoxyCodeLine{00036\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00037\ \ \ \ \ glm::vec3\ position;}
-\DoxyCodeLine{00038\ \ \ \ \ glm::vec3\ up;}
-\DoxyCodeLine{00039\ \ \ \ \ glm::vec3\ looking\_at;}
-\DoxyCodeLine{00040\ \ \ \ \ glm::vec3\ cam\_front;}
-\DoxyCodeLine{00041\ \ \ \ \ glm::mat4\ projection;}
-\DoxyCodeLine{00042\ \ \ \ \ glm::mat4\ view;}
-\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{bool}\ camera\_updated\ =\ \textcolor{keyword}{true};\ \ \ \ \ \textcolor{comment}{//\ prevent\ unnecessary\ transaction\ and\ processing}}
-\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ of\ the\ \`{}global\_transform'\ matrix}}
-\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{float}\ fov;}
-\DoxyCodeLine{00046\ }
-\DoxyCodeLine{00047\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00048\ \ \ \ \ Camera(\doxymbox{\hyperlink{structSolaris_1_1CameraProperties}{CameraProperties}}\ properties);}
-\DoxyCodeLine{00049\ \ \ \ \ \string~Camera();}
-\DoxyCodeLine{00050\ }
-\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{bool}\ Render(\doxymbox{\hyperlink{classSolaris_1_1Renderer}{Renderer}}\&\ render);}
-\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{bool}\ Destroy(\doxymbox{\hyperlink{classSolaris_1_1Renderer}{Renderer}}\&\ render);}
-\DoxyCodeLine{00053\ }
-\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{void}\ Attach();}
-\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{void}\ Detach();}
-\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{void}\ ApplyProperties(\doxymbox{\hyperlink{structSolaris_1_1CameraProperties}{CameraProperties}}\ properties);}
-\DoxyCodeLine{00057\ \};}
-\DoxyCodeLine{00058\ }
-\DoxyCodeLine{00059\ \}}
-\DoxyCodeLine{00060\ }
-\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ SOLARIS\_CAMERA\_H}}
+\DoxyCodeLine{00016\ \ \ \ \ glm::vec3\ front\_vector\ =\ \{0.0f,\ 0.0f,\ -\/1.0f\};}
+\DoxyCodeLine{00017\ \ \ \ \ glm::vec3\ rotation\ =\ \{0.0f,\ 0.0f,\ 0.0f\};}
+\DoxyCodeLine{00018\ \ \ \ \ glm::vec3\ looking\_at;}
+\DoxyCodeLine{00019\ \ \ \ \ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{comment}{//\ projection\ properties}}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{bool}\ perspective\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{float}\ near\_clip\ =\ 0.1f;}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{float}\ far\_clip\ =\ 1000.0f;}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{comment}{//\ perspective-\/specific}}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{float}\ fov\ =\ 60.0f;}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{float}\ aspect\_ratio\ =\ 800.0f\ /\ 600.0f;}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{comment}{//\ ortho-\/specific}}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{float}\ left;}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{float}\ right;}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{float}\ bottom;}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{float}\ top;}
+\DoxyCodeLine{00034\ \}\ \doxymbox{\hyperlink{structSolaris_1_1CameraProperties}{CameraProperties}};}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{keyword}{class\ }Camera\ :\ \textcolor{keyword}{public}\ RenderObject\ \{}
+\DoxyCodeLine{00037\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00038\ \ \ \ \ glm::vec3\ position;}
+\DoxyCodeLine{00039\ \ \ \ \ glm::vec3\ up;}
+\DoxyCodeLine{00040\ \ \ \ \ glm::vec3\ looking\_at;}
+\DoxyCodeLine{00041\ \ \ \ \ glm::vec3\ cam\_front;}
+\DoxyCodeLine{00042\ \ \ \ \ glm::vec3\ rotation;}
+\DoxyCodeLine{00043\ \ \ \ \ glm::mat4\ projection;}
+\DoxyCodeLine{00044\ \ \ \ \ glm::mat4\ view;}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{bool}\ camera\_updated\ =\ \textcolor{keyword}{true};\ \ \ \ \ \textcolor{comment}{//\ prevent\ unnecessary\ transaction\ and\ processing}}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ of\ the\ \`{}global\_transform'\ matrix}}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{float}\ fov;}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00050\ \ \ \ \ Camera(\doxymbox{\hyperlink{structSolaris_1_1CameraProperties}{CameraProperties}}\ properties);}
+\DoxyCodeLine{00051\ \ \ \ \ \string~Camera();}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{bool}\ Render(\doxymbox{\hyperlink{classSolaris_1_1Renderer}{Renderer}}\&\ render);}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{bool}\ Destroy(\doxymbox{\hyperlink{classSolaris_1_1Renderer}{Renderer}}\&\ render);}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{void}\ Attach();}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{void}\ Detach();}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{void}\ ApplyProperties(\doxymbox{\hyperlink{structSolaris_1_1CameraProperties}{CameraProperties}}\ properties);\ \ \textcolor{comment}{//\ i\ have\ no\ idea\ why\ i\ added\ this.}}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{comment}{//\ camera\ transformation}}
+\DoxyCodeLine{00061\ \ \ \ \ glm::vec3\ GetPosition();}
+\DoxyCodeLine{00062\ \ \ \ \ glm::vec3\ GetRotation();}
+\DoxyCodeLine{00063\ \ \ \ \ glm::vec3\ GetLookAt();}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{void}\ SetPosition(glm::vec3\ to);}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{void}\ SetRotation(glm::vec3\ to);}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{void}\ SetLookAt(glm::vec3\ to);}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{void}\ Translate(glm::vec3\ by);}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{void}\ Rotate(glm::vec3\ by);}
+\DoxyCodeLine{00069\ \};}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \}}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ SOLARIS\_CAMERA\_H}}
 
 \end{DoxyCode}

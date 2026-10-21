@@ -25,6 +25,7 @@
 var NAVTREE =
 [
   [ "Solaris", "index.html", [
+    [ "The Solaris Game Engine", "index.html", null ],
     [ "The Solaris Renderer", "df/dc4/renderer.html", null ],
     [ "Render Objects", "da/d0e/renderobject.html", [
       [ "Defining Render Objects", "da/d0e/renderobject.html#renderobject-definition", [

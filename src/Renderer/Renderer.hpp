@@ -18,6 +18,18 @@
   * 
   */
 
+/**
+ * @mainpage The Solaris Game Engine
+ *
+ * Voidstar's Solaris is a multi-platform open-source game engine written in C++ based on OpenGL. This documentation will
+ * provide all the necessary information you will need to have in order to work with Solaris.
+ *
+ * @warning Solaris, along with this documentation, is still in its alpha phase. Don't expect it to be bullet-proof, or
+ * complete and ready for usage.
+ *
+ * @remark Feel free to contribute to this project at https://github.com/pwrisbss/Solaris/
+ */
+
 #include <iostream>
 #include <functional>
 #include <vector>
