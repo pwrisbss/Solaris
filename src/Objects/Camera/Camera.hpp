@@ -38,7 +38,7 @@ private:
 	glm::vec3 position;
 	glm::vec3 up;
 	glm::vec3 looking_at;
-	glm::vec3 cam_front;
+	glm::vec3 front;
 	glm::vec3 rotation;
 	glm::mat4 projection;
 	glm::mat4 view;
