@@ -62,8 +62,6 @@ bool Model::Render(Renderer& renderer) {
 }
 
 bool Model::Destroy(Renderer&) {
-	std::cout << "Model::Destroy() called\n";
-
 	glDeleteBuffers(1, &this->meshVBO);
 	glDeleteVertexArrays(1, &this->modelVAO);
 
