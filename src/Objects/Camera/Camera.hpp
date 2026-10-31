@@ -35,11 +35,7 @@ typedef struct CameraProperties {
 
 class Camera : public RenderObject {
 private:
-	glm::vec3 position;
-	glm::vec3 up;
-	glm::vec3 looking_at;
-	glm::vec3 front;
-	glm::vec3 rotation;
+	CameraProperties properties;
 	glm::mat4 projection;
 	glm::mat4 view;
 	bool camera_updated = true;     // prevent unnecessary transaction and processing

@@ -4,10 +4,7 @@ namespace Solaris {
 
 Camera::Camera(CameraProperties properties) :
 	RenderObject(),
-	position(properties.position),
-	up(properties.up_vector),
-	front(properties.front_vector),
-	fov(properties.fov) {
+	properties(properties) {
 	if (properties.perspective) {
 		this->projection = glm::perspective(this->fov, properties.aspect_ratio,
 			properties.near_clip, properties.far_clip);
@@ -16,7 +13,8 @@ Camera::Camera(CameraProperties properties) :
 			properties.bottom, properties.top, properties.near_clip, properties.far_clip);
 	}
 
-	this->view = glm::lookAt(this->position, this->looking_at + this->front, this->up);
+	this->view = glm::lookAt(this->properties.position, this->properties.looking_at + this->properties.front_vector,
+		this->properties.up_vector);
 }
 
 Camera::~Camera() {}
@@ -39,11 +37,7 @@ void Camera::Detach() {
 }
 
 void Camera::ApplyProperties(CameraProperties properties) {
-	this->position = properties.position;
-	this->up = properties.up_vector;
-	this->front = properties.front_vector;
-	this->fov = properties.fov;
-	this->looking_at = properties.looking_at;
+	this->properties = properties;
 
 	if (properties.perspective) {
 		this->projection = glm::perspective(this->fov, properties.aspect_ratio,
@@ -52,7 +46,8 @@ void Camera::ApplyProperties(CameraProperties properties) {
 		this->projection = glm::ortho(properties.left, properties.right, properties.bottom, properties.top);
 	}
 
-	this->view = glm::lookAt(this->position, this->looking_at + this->front, this->up);
+	this->view = glm::lookAt(this->properties.position, this->properties.looking_at + this->properties.front_vector,
+		this->properties.up_vector);
 
 	this->camera_updated = true;
 }
@@ -62,23 +57,23 @@ bool Camera::Destroy(Renderer&) {
 }
 
 glm::vec3 Camera::GetPosition() {
-	return this->position;
+	return this->properties.position;
 }
 
 glm::vec3 Camera::GetRotation() {
-	return this->rotation;
+	return this->properties.rotation;
 }
 
 void Camera::SetPosition(glm::vec3 to) {
-	this->position = to;
+	this->properties.position = to;
 
-	this->view = glm::lookAt(this->position, this->looking_at + this->front, this->up);
+	this->view = glm::lookAt(this->properties.position, this->properties.looking_at + this->properties.front_vector,
+		this->properties.up_vector);
 
 	this->camera_updated = true;
 }
 
-void Camera::SetRotation(glm::vec3 to) {
-	this->rotation = to;
+void Camera::SetRotation(glm::vec3 by) {
 	this->camera_updated = true;
 }
 
