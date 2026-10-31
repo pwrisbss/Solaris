@@ -3,10 +3,14 @@ project(Solaris)
 
 option(BUILD_TESTS "Build test binaries" NO)
 option(CXX_DEBUG "Enable the debug flag (-g) for compiler" NO)
-set(CMAKE_CXX_FLAGS "-O2")
+option(NO_OPTIMIZE "Disable optimization flag (-O2) while compiling" NO)
 
 # The Solaris Library
 add_library(${PROJECT_NAME})
+
+if(NOT NO_OPTIMIZE)
+	target_compile_options(${PROJECT_NAME} PRIVATE -O2)
+endif(NOT NO_OPTIMIZE)
 
 target_sources(${PROJECT_NAME}
 	PUBLIC
@@ -22,7 +26,7 @@ endif(UNIX)
 
 # Debugging
 if(CXX_DEBUG)
-	set(CMAKE_CXX_FLAGS "-g")
+	target_compile_options(${PROJECT_NAME} PRIVATE -g)
 endif(CXX_DEBUG)
 
 # Solaris Components
