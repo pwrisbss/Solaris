@@ -13,9 +13,11 @@ namespace Solaris {
 typedef struct CameraProperties {
 	glm::vec3 position = {0.0f, 0.0f, 0.0f};
 	glm::vec3 up_vector = {0.0f, 1.0f, 0.0f};
+	glm::vec3 world_up_vector = this->up_vector;
 	glm::vec3 front_vector = {0.0f, 0.0f, -1.0f};
-	glm::vec3 rotation = {0.0f, 0.0f, 0.0f};
 	glm::vec3 looking_at;
+	float pitch = 0.0f;
+	float yaw = -90.0f;
 	
 	// projection properties
 	bool perspective = true;
@@ -31,6 +33,10 @@ typedef struct CameraProperties {
 	float right;
 	float bottom;
 	float top;
+
+	struct {
+		glm::vec3 right;
+	} _reserved;
 } CameraProperties;
 
 class Camera : public RenderObject {
@@ -40,7 +46,6 @@ private:
 	glm::mat4 view;
 	bool camera_updated = true;     // prevent unnecessary transaction and processing
 	                                // of the `global_transform' matrix
-	float fov;
 
 public:
 	Camera(CameraProperties properties);
@@ -55,13 +60,14 @@ public:
 
 	// camera transformation
 	glm::vec3 GetPosition();
-	glm::vec3 GetRotation();
 	glm::vec3 GetLookAt();
+	float GetPitch();
+	float GetYaw();
 	void SetPosition(glm::vec3 to);
-	void SetRotation(glm::vec3 to);
+	void SetRotation(float pitch, float yaw);
 	void SetLookAt(glm::vec3 to);
 	void Translate(glm::vec3 by);
-	void Rotate(glm::vec3 by);
+	void Rotate(float pitch, float yaw);
 };
 
 }

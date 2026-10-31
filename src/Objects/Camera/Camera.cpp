@@ -6,7 +6,7 @@ Camera::Camera(CameraProperties properties) :
 	RenderObject(),
 	properties(properties) {
 	if (properties.perspective) {
-		this->projection = glm::perspective(this->fov, properties.aspect_ratio,
+		this->projection = glm::perspective(this->properties.fov, properties.aspect_ratio,
 			properties.near_clip, properties.far_clip);
 	} else {
 		this->projection = glm::ortho(properties.left, properties.right,
@@ -40,7 +40,7 @@ void Camera::ApplyProperties(CameraProperties properties) {
 	this->properties = properties;
 
 	if (properties.perspective) {
-		this->projection = glm::perspective(this->fov, properties.aspect_ratio,
+		this->projection = glm::perspective(this->properties.fov, properties.aspect_ratio,
 			properties.near_clip, properties.far_clip);
 	} else {
 		this->projection = glm::ortho(properties.left, properties.right, properties.bottom, properties.top);
@@ -60,8 +60,16 @@ glm::vec3 Camera::GetPosition() {
 	return this->properties.position;
 }
 
-glm::vec3 Camera::GetRotation() {
-	return this->properties.rotation;
+float Camera::GetPitch() {
+	return this->properties.pitch;
+}
+
+float Camera::GetYaw() {
+	return this->properties.yaw;
+}
+
+glm::vec3 Camera::GetLookAt() {
+	return this->properties.looking_at;
 }
 
 void Camera::SetPosition(glm::vec3 to) {
@@ -73,8 +81,35 @@ void Camera::SetPosition(glm::vec3 to) {
 	this->camera_updated = true;
 }
 
-void Camera::SetRotation(glm::vec3 by) {
+void Camera::SetRotation(float pitch, float yaw) {
+	glm::vec3 new_front(1.0f);
+	this->properties.pitch = pitch;
+	this->properties.yaw = yaw;
+	new_front.x = cos(glm::radians(yaw)) * cos(glm::radians(yaw));
+    new_front.y = sin(glm::radians(pitch));
+    new_front.z = sin(glm::radians(yaw)) * cos(glm::radians(pitch));
+	this->properties.front_vector = glm::normalize(new_front);
+	this->properties._reserved.right =
+		glm::normalize(glm::cross(this->properties.front_vector, this->properties.world_up_vector));
+	this->properties.up_vector =
+		glm::normalize(glm::cross(this->properties._reserved.right, this->properties.front_vector));
+
 	this->camera_updated = true;
+}
+
+void Camera::SetLookAt(glm::vec3 to) {
+	this->properties.looking_at = to;
+}
+
+void Camera::Rotate(float pitch, float yaw) {
+	this->properties.pitch += glm::radians(pitch);
+	this->properties.yaw += glm::radians(yaw);
+	this->SetRotation(this->properties.pitch, this->properties.yaw);
+}
+
+void Camera::Translate(glm::vec3 by) {
+	this->properties.position += by;
+	this->SetPosition(this->properties.position);
 }
 
 }
