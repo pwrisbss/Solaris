@@ -41,13 +41,13 @@ typedef struct CameraProperties {
 
 class Camera : public RenderObject {
 private:
-	CameraProperties properties;
 	glm::mat4 projection;
 	glm::mat4 view;
 	bool camera_updated = true;     // prevent unnecessary transaction and processing
 	                                // of the `global_transform' matrix
 
 public:
+	CameraProperties properties;
 	Camera(CameraProperties properties);
 	~Camera();
 
