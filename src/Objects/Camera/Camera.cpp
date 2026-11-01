@@ -85,7 +85,7 @@ void Camera::SetRotation(float pitch, float yaw) {
 	glm::vec3 new_front(1.0f);
 	this->properties.pitch = pitch;
 	this->properties.yaw = yaw;
-	new_front.x = cos(glm::radians(yaw)) * cos(glm::radians(yaw));
+	new_front.x = cos(glm::radians(yaw)) * cos(glm::radians(pitch));
     new_front.y = sin(glm::radians(pitch));
     new_front.z = sin(glm::radians(yaw)) * cos(glm::radians(pitch));
 	this->properties.front_vector = glm::normalize(new_front);

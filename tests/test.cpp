@@ -74,17 +74,19 @@ void main() {
 )";
 
 bool renderer_tick(SOL::Renderer& render);
+void mouse_mvmt(GLFWwindow * wnd, double x, double y);
+
+SOL::Camera cam(SOL::CameraProperties {
+	.position = {0.0f, 1.0f, 0.0f},
+	.looking_at = {0.0f, 0.0f, 0.0f},
+	.fov = glm::radians(60.0f),
+	.aspect_ratio = 800.0f / 600.0f,
+});
 
 int main() {
 	SOL::Renderer render("toitel", 800, 600);
 	SOL::ResourceMan resman;
 	SOL::Shader shader(vertex_shader, fragment_shader);
-	SOL::Camera cam(SOL::CameraProperties {
-		.position = {0.0f, 1.0f, 0.0f},
-		.looking_at = {0.0f, 0.0f, 0.0f},
-		.fov = glm::radians(60.0f),
-		.aspect_ratio = 800.0f / 600.0f,
-	});
 
 	unsigned mesh_resource_key = resman.OwnResource(cube_mesh, sizeof(cube_mesh));
 	auto mesh_resource = resman.FetchCasted<float>(mesh_resource_key);
@@ -95,14 +97,14 @@ int main() {
 	render.AttachRenderObject(&model0);
 	render.AttachRenderObject(&cam);
 	render.AddTickEvent(renderer_tick);
+	glfwSetCursorPosCallback(render.GetGLFWWindow(), mouse_mvmt);
+	glfwSetInputMode(render.GetGLFWWindow(), GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 
 	cam.Attach();
-	cam.SetPosition({ 0.0f, 0.0f, 5.0f });
+	cam.SetPosition({ 0.0f, 0.0f, 2.0f });
 
     while (!render.GetShouldClose()) {
 		render.Tick();
-		// cam.Rotate(10.0f, 0.1f);
-		cam.Translate({ 0.0f, 0.0f, -0.01f });
 	}
 
 	return 0;
@@ -114,4 +116,26 @@ bool renderer_tick(SOL::Renderer& render) {
 	}
 
 	return true;
+}
+
+bool isFirstMove = true;
+float mouseLastX;
+float mouseLastY;
+float sensitivity = 2.5f;
+void mouse_mvmt(GLFWwindow * wnd, double x, double y) {
+	if (isFirstMove) {
+		mouseLastX = x;
+		mouseLastY = y;
+
+		isFirstMove = false;
+		return;
+	}
+
+	float dx = x - mouseLastX;
+	float dy = y - mouseLastY;
+
+	cam.Rotate(-dy * sensitivity, dx * sensitivity);
+
+	mouseLastX = x;
+	mouseLastY = y;
 }
