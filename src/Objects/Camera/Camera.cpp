@@ -89,10 +89,14 @@ void Camera::SetRotation(float pitch, float yaw) {
     new_front.y = sin(glm::radians(pitch));
     new_front.z = sin(glm::radians(yaw)) * cos(glm::radians(pitch));
 	this->properties.front_vector = glm::normalize(new_front);
+	this->properties.looking_at = this->properties.front_vector;
 	this->properties._reserved.right =
 		glm::normalize(glm::cross(this->properties.front_vector, this->properties.world_up_vector));
 	this->properties.up_vector =
 		glm::normalize(glm::cross(this->properties._reserved.right, this->properties.front_vector));
+
+	this->view = glm::lookAt(this->properties.position, this->properties.looking_at + this->properties.front_vector,
+		this->properties.up_vector);
 
 	this->camera_updated = true;
 }
