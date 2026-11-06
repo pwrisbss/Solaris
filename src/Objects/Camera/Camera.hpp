@@ -13,8 +13,9 @@ namespace Solaris {
 typedef struct CameraProperties {
 	glm::vec3 position = {0.0f, 0.0f, 0.0f};
 	glm::vec3 up_vector = {0.0f, 1.0f, 0.0f};
-	glm::vec3 world_up_vector = this->up_vector;
 	glm::vec3 front_vector = {0.0f, 0.0f, -1.0f};
+	glm::vec3 right_vector = {1.0f, 0.0f, 0.0f};
+	glm::vec3 world_up_vector = this->up_vector;
 	glm::vec3 looking_at;
 	float pitch = 0.0f;
 	float yaw = -90.0f;
@@ -33,10 +34,6 @@ typedef struct CameraProperties {
 	float right;
 	float bottom;
 	float top;
-
-	struct {
-		glm::vec3 right;
-	} _reserved;
 } CameraProperties;
 
 class Camera : public RenderObject {
