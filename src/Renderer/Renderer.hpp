@@ -49,6 +49,12 @@ class Renderer;
 typedef std::function<bool(Renderer&)> RendererTickEvent;
 
 /**
+ * @brief A synonym to Solaris::Renderer.
+ * 
+ */
+typedef Renderer Engine;
+
+/**
  * @class Renderer
  * @brief Solaris Renderer class
  *

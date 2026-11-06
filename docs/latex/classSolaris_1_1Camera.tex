@@ -28,17 +28,20 @@ void {\bfseries Apply\+Properties} (\doxymbox{\hyperlink{structSolaris_1_1Camera
 \Hypertarget{classSolaris_1_1Camera_a94c10c2d425e6c51962104b24b1e3217}\label{classSolaris_1_1Camera_a94c10c2d425e6c51962104b24b1e3217} 
 glm::\+vec3 {\bfseries Get\+Position} ()
 \item 
-\Hypertarget{classSolaris_1_1Camera_abf588b2ccc548ebd72ff01772802c246}\label{classSolaris_1_1Camera_abf588b2ccc548ebd72ff01772802c246} 
-glm::\+vec3 {\bfseries Get\+Rotation} ()
-\item 
 \Hypertarget{classSolaris_1_1Camera_abc24ee541b60920163b6c3ad27dfee88}\label{classSolaris_1_1Camera_abc24ee541b60920163b6c3ad27dfee88} 
 glm::\+vec3 {\bfseries Get\+Look\+At} ()
+\item 
+\Hypertarget{classSolaris_1_1Camera_a820b7241a1a5061f5467e3114493dfe6}\label{classSolaris_1_1Camera_a820b7241a1a5061f5467e3114493dfe6} 
+float {\bfseries Get\+Pitch} ()
+\item 
+\Hypertarget{classSolaris_1_1Camera_ac92bff0735db96667975c1baea718652}\label{classSolaris_1_1Camera_ac92bff0735db96667975c1baea718652} 
+float {\bfseries Get\+Yaw} ()
 \item 
 \Hypertarget{classSolaris_1_1Camera_aa71ae527a145a8ed4fd9589e4e569080}\label{classSolaris_1_1Camera_aa71ae527a145a8ed4fd9589e4e569080} 
 void {\bfseries Set\+Position} (glm::\+vec3 to)
 \item 
-\Hypertarget{classSolaris_1_1Camera_a15fbc99b76ccf014449b5ed201ac31c2}\label{classSolaris_1_1Camera_a15fbc99b76ccf014449b5ed201ac31c2} 
-void {\bfseries Set\+Rotation} (glm::\+vec3 to)
+\Hypertarget{classSolaris_1_1Camera_acdf0c987eea9a65d01ccd1238bc96ad0}\label{classSolaris_1_1Camera_acdf0c987eea9a65d01ccd1238bc96ad0} 
+void {\bfseries Set\+Rotation} (float pitch, float yaw)
 \item 
 \Hypertarget{classSolaris_1_1Camera_ac03a2f7aa63b65b6b6393bf0f6f95b5e}\label{classSolaris_1_1Camera_ac03a2f7aa63b65b6b6393bf0f6f95b5e} 
 void {\bfseries Set\+Look\+At} (glm::\+vec3 to)
@@ -46,8 +49,8 @@ void {\bfseries Set\+Look\+At} (glm::\+vec3 to)
 \Hypertarget{classSolaris_1_1Camera_a83e56166ed548c27e5a6974cdeda7725}\label{classSolaris_1_1Camera_a83e56166ed548c27e5a6974cdeda7725} 
 void {\bfseries Translate} (glm::\+vec3 by)
 \item 
-\Hypertarget{classSolaris_1_1Camera_a895936c7634003d27d910681023fa900}\label{classSolaris_1_1Camera_a895936c7634003d27d910681023fa900} 
-void {\bfseries Rotate} (glm::\+vec3 by)
+\Hypertarget{classSolaris_1_1Camera_a9220428ab0243342c544a0f2c3b441db}\label{classSolaris_1_1Camera_a9220428ab0243342c544a0f2c3b441db} 
+void {\bfseries Rotate} (float pitch, float yaw)
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{classSolaris_1_1RenderObject}{Solaris::\+\+Render\+Object}}}
 \begin{DoxyCompactItemize}
@@ -58,7 +61,12 @@ virtual bool {\bfseries Tick} (\doxymbox{\hyperlink{classSolaris_1_1Renderer}{Re
 \item 
 virtual bool {\bfseries Construct} (\doxymbox{\hyperlink{classSolaris_1_1Renderer}{Renderer}} \&)
 \end{DoxyCompactItemize}
-\doxysubsubsection*{Additional Inherited Members}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classSolaris_1_1Camera_ad7fe51ab0c0ae13b6da96362b47960f8}\label{classSolaris_1_1Camera_ad7fe51ab0c0ae13b6da96362b47960f8} 
+\doxymbox{\hyperlink{structSolaris_1_1CameraProperties}{Camera\+Properties}} {\bfseries properties}
+\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes inherited from \doxymbox{\hyperlink{classSolaris_1_1RenderObject}{Solaris::\+\+Render\+Object}}}
 \begin{DoxyCompactItemize}
 \item 

@@ -110,9 +110,23 @@ int main() {
 	return 0;
 }
 
+float moveSpeed = 0.1f;
 bool renderer_tick(SOL::Renderer& render) {
 	if (glfwGetKey(render.GetGLFWWindow(), GLFW_KEY_ESCAPE) == GLFW_PRESS) {
 		render.SetShouldClose(true);
+	}
+
+	if (glfwGetKey(render.GetGLFWWindow(), GLFW_KEY_W)) {
+		cam.Translate(moveSpeed * cam.properties.front_vector);
+	}
+	if (glfwGetKey(render.GetGLFWWindow(), GLFW_KEY_A)) {
+		cam.Translate(-moveSpeed * cam.properties.right_vector);
+	}
+	if (glfwGetKey(render.GetGLFWWindow(), GLFW_KEY_S)) {
+		cam.Translate(-moveSpeed * cam.properties.front_vector);
+	}
+	if (glfwGetKey(render.GetGLFWWindow(), GLFW_KEY_D)) {
+		cam.Translate(moveSpeed * cam.properties.right_vector);
 	}
 
 	return true;
