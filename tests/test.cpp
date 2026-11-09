@@ -1,3 +1,4 @@
+#include "Objects/UI/UI.hpp"
 #include <Objects/Camera/Camera.hpp>
 #include <Objects/Model/Model.hpp>
 #include <Renderer/Renderer.hpp>
@@ -5,6 +6,7 @@
 #include <Shader/Shader.hpp>
 #include <Renderer/RenderObjects.hpp>
 #include <ShortNamespace.hpp>
+#include <chrono>
 
 float cube_mesh[] = {
     -0.5f, -0.5f, -0.5f,//  0.0f, 0.0f,
@@ -84,7 +86,8 @@ SOL::Camera cam(SOL::CameraProperties {
 });
 
 int main() {
-	SOL::Renderer render("toitel", 800, 600);
+	auto start_time = std::chrono::system_clock::now();
+	SOL::Renderer * render = new SOL::Renderer("toitel", 800, 600);
 	SOL::ResourceMan resman;
 	SOL::Shader shader(vertex_shader, fragment_shader);
 
@@ -93,19 +96,30 @@ int main() {
 	SOL::Model model0(mesh_resource, SOL::NoTexture);
 	model0.SetPosition({ 0.0f, 0.0f, 0.0f });
 
-	render.AttachShader(shader);
-	render.AttachRenderObject(&model0);
-	render.AttachRenderObject(&cam);
-	render.AddTickEvent(renderer_tick);
-	glfwSetCursorPosCallback(render.GetGLFWWindow(), mouse_mvmt);
-	glfwSetInputMode(render.GetGLFWWindow(), GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+	render->AttachShader(shader);
+	render->AttachRenderObject(&model0);
+	render->AttachRenderObject(&cam);
+	render->AddTickEvent(renderer_tick);
+	glfwSetCursorPosCallback(render->GetGLFWWindow(), mouse_mvmt);
+	glfwSetInputMode(render->GetGLFWWindow(), GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 
 	cam.Attach();
 	cam.SetPosition({ 0.0f, 0.0f, 2.0f });
 
-    while (!render.GetShouldClose()) {
-		render.Tick();
+	auto end_time = std::chrono::system_clock::now();
+	std::chrono::duration<double> elapsed = end_time - start_time;
+	std::cout << "load time: " << elapsed.count() << "s\n";
+    while (!render->GetShouldClose()) {
+		render->Tick();
 	}
+
+	start_time = std::chrono::system_clock::now();
+	
+	delete render;
+
+	end_time = std::chrono::system_clock::now();
+	elapsed = end_time - start_time;
+	std::cout << "unload time: " << elapsed.count() << "s\n";
 
 	return 0;
 }
@@ -127,6 +141,12 @@ bool renderer_tick(SOL::Renderer& render) {
 	}
 	if (glfwGetKey(render.GetGLFWWindow(), GLFW_KEY_D)) {
 		cam.Translate(moveSpeed * cam.properties.right_vector);
+	}
+	if (glfwGetKey(render.GetGLFWWindow(), GLFW_KEY_1)) {
+		cam.Detach();
+	}
+	if (glfwGetKey(render.GetGLFWWindow(), GLFW_KEY_2)) {
+		cam.Attach();
 	}
 
 	return true;

@@ -35,6 +35,7 @@ add_subdirectory(src/Renderer)
 add_subdirectory(src/ResourceMan)
 add_subdirectory(src/Objects/Camera)
 add_subdirectory(src/Objects/Model)
+add_subdirectory(src/Objects/UI)
 add_subdirectory(src/)
 
 # Tests

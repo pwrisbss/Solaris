@@ -52,10 +52,6 @@ void Camera::ApplyProperties(CameraProperties properties) {
 	this->camera_updated = true;
 }
 
-bool Camera::Destroy(Renderer&) {
-	return false;
-}
-
 glm::vec3 Camera::GetPosition() {
 	return this->properties.position;
 }

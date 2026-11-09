@@ -63,6 +63,7 @@ bool Model::Render(Renderer& renderer) {
 
 bool Model::Destroy(Renderer&) {
 	glDeleteBuffers(1, &this->meshVBO);
+	if (this->texture_data != NoTexture) glDeleteTextures(1, &this->texture);
 	glDeleteVertexArrays(1, &this->modelVAO);
 
 	return true;

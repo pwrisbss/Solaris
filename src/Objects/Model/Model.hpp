@@ -16,7 +16,7 @@ const glm::vec3 XAxis(1.0f, 0.0f, 0.0f);
 const glm::vec3 YAxis(0.0f, 1.0f, 0.0f);
 const glm::vec3 ZAxis(0.0f, 0.0f, 1.0f);
 
-class Model : public RenderObject {
+class Model : public RenderObject { MyNameIs("Model")
 private:
 	glm::vec3 position;
 	glm::vec3 scale;
@@ -37,9 +37,10 @@ public:
 		glm::vec3 initial_pos = {0.0f, 0.0f, 0.0f});
 	~Model();
 
-	bool Render(Renderer&);
-	bool Construct(Renderer&);
-	bool Destroy(Renderer&);
+	bool Render(Renderer&) override;
+	bool Tick(Renderer&) override NoCall;
+	bool Construct(Renderer&) override;
+	bool Destroy(Renderer&) override;
 
 	// getters
 	glm::vec3 GetPosition();

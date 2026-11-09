@@ -36,7 +36,7 @@ typedef struct CameraProperties {
 	float top;
 } CameraProperties;
 
-class Camera : public RenderObject {
+class Camera : public RenderObject { MyNameIs("Camera")
 private:
 	glm::mat4 projection;
 	glm::mat4 view;
@@ -48,8 +48,10 @@ public:
 	Camera(CameraProperties properties);
 	~Camera();
 
-	bool Render(Renderer& render);
-	bool Destroy(Renderer& render);
+	bool Render(Renderer& render) override;
+	bool Destroy(Renderer&) override NoCall;
+	bool Tick(Renderer&) override NoCall;
+	bool Construct(Renderer&) override NoCall;
 
 	void Attach();
 	void Detach();

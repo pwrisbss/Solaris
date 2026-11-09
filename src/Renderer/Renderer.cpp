@@ -62,14 +62,14 @@ void Renderer::Tick() {
 		// render
 		if (obj->renderable) {
 			if (!obj->Render(*this)) {
-				std::cout << "W: RenderObject::Render() returned false! Possible error!\n";
+				std::cout << "W: " << obj->WhatsYourName() << "::Render() returned false! Possible error!\n";
 			}
 		}
 
 		// tick
 		if (obj->tickable) {
 			if (!obj->Tick(*this)) {
-				std::cout << "W: RenderObject::Tick() returned false! Possible error!\n";
+				std::cout << "W: " << obj->WhatsYourName() << "::Tick() returned false! Possible error!\n";
 			}
 		}
 	}
@@ -83,7 +83,7 @@ Renderer::~Renderer() {
 	for (auto obj : this->objects) {
 		if (obj->destructible) {
 			if (!obj->Destroy(*this)) {
-				std::cout << "W: RenderObject::Destroy() returned false! Possible error!\n";
+				std::cout << "W: " << obj->WhatsYourName() << "::Destroy() returned false! Possible error!\n";
 			}
 		}
 	}

@@ -11,6 +11,9 @@
 #ifndef SOLARIS_RENDEREROBJECTS_H
 #define SOLARIS_RENDEREROBJECTS_H
 
+#define NoCall { return false; }
+#define MyNameIs(_ro_name) std::string WhatsYourName() override { return _ro_name; }
+
 #include <ResourceMan/ResourceMan.hpp>
 #include <functional>
 
@@ -77,7 +80,7 @@ class Renderer;
 class RenderObject {
 public:
 	RenderObject(bool _r = false, bool _t = false, bool _c = false, bool _d = false);
-	~RenderObject();
+	virtual ~RenderObject() = default;
 
 	bool renderable;
 	bool tickable;
@@ -88,6 +91,7 @@ public:
 	virtual bool Tick(Renderer&);
 	virtual bool Construct(Renderer&);
 	virtual bool Destroy(Renderer&);
+	virtual std::string WhatsYourName();
 };
 
 }
