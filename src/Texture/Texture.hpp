@@ -3,23 +3,14 @@
 
 #include <ResourceMan/ResourceMan.hpp>
 #include <Renderer/Renderer.hpp>
-#include <Objects/Model/Model.hpp>
 #include <memory>
+#include <variant>
 
 namespace Solaris {
 
-typedef enum TextureParameterValueType {
-	INTEGER = 0,
-	FLOAT,
-} TextureParameterValueType;
+const CastedResource<unsigned char> NoTexture = {0, nullptr};
 
-typedef struct TextureParameterValue {
-	TextureParameterValueType type;
-	union {
-		std::shared_ptr<int> pint;
-		std::shared_ptr<float> pfloat;
-	};
-} TextureParameterValue;
+typedef std::variant<int, float> TextureParameterValue;
 
 class Texture {
 private:
@@ -28,15 +19,15 @@ private:
 
 public:
 	Texture();
-	Texture(CastedResource<unsigned char> data);
+	Texture(const CastedResource<unsigned char>& data);
 	~Texture();
 
 	template<typename _param_type>
 	_param_type GetParam(GLenum name);
-	void SetParam(GLenum name, int value);
-	void SetParam(GLenum name, float value);
+	CastedResource<unsigned char> GetTexData();
+	void SetTexData(const CastedResource<unsigned char>& data);
+	void SetParam(GLenum name, TextureParameterValue value);
 	void DeleteParam(GLenum name);
-
 };
 
 }
