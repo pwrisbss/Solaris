@@ -1,4 +1,5 @@
 #include "ResourceMan.hpp"
+#include <vector>
 
 namespace Solaris {
 
@@ -7,39 +8,43 @@ ResourceMan::ResourceMan()
 
 ResourceMan::~ResourceMan() {}
 
-unsigned ResourceMan::LoadResource(std::string file_location, bool load_as_string) {
+unsigned ResourceMan::LoadResource(std::string file_location, bool load_as_string, FileType filetype) {
 	Resource resource;
-	std::ifstream resource_file;
 	unsigned resource_key;
 	unsigned long resource_size;
+	
+	if (filetype == RAW) {
+		// open file
+		std::ifstream resource_file;
+		resource_file.open(file_location, std::ios::binary | std::ios::ate);
 
-	// open file
-	resource_file.open(file_location, std::ios::binary | std::ios::ate);
+		if (!resource_file.is_open()) {
+			// TODO add error handling
+			std::cout << "error loading file: " << file_location << std::endl;
+		}
 
-	if (!resource_file.is_open()) {
-		// TODO add error handling
-		std::cout << "error loading file: " << file_location << std::endl;
+		// find size
+		resource_size = resource_file.tellg();
+		resource_file.seekg(0, std::ios::beg);
+
+		// read into memory
+		char * memblock;
+		if (load_as_string) {
+			memblock = new char[resource_size + 1];
+			memblock[resource_size] = '\0';
+		} else {
+			memblock = new char[resource_size];
+		}
+		resource_file.read(memblock, resource_size);
+
+		resource.size = resource_size;
+		resource.pdata = (void*)memblock;
+
+		resource_key = this->NewResource();
+		this->resources[resource_key] = resource;
+	} else if (filetype == IMAGE) {
+		// stack overflow told me to use vectors
 	}
-
-	// find size
-	resource_size = resource_file.tellg();
-	resource_file.seekg(0, std::ios::beg);
-
-	// read into memory
-	char * memblock;
-	if (load_as_string) {
-		memblock = new char[resource_size + 1];
-		memblock[resource_size] = '\0';
-	} else {
-		memblock = new char[resource_size];
-	}
-	resource_file.read(memblock, resource_size);
-
-	resource.size = resource_size;
-	resource.pdata = (void*)memblock;
-
-	resource_key = this->NewResource();
-	this->resources[resource_key] = resource;
 
 	return resource_key;
 }

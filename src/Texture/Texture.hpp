@@ -15,9 +15,9 @@ typedef std::variant<int, float> TextureParameterValue;
 class Texture {
 private:
 	CastedResource<unsigned char> data;
-	std::unordered_map<GLenum, TextureParameterValue> params;
-
+	
 public:
+	std::unordered_map<GLenum, TextureParameterValue> params;
 	Texture();
 	Texture(const CastedResource<unsigned char>& data);
 	~Texture();

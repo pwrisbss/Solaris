@@ -2,16 +2,22 @@
 
 namespace Solaris {
 
-Model::Model(const CastedResource<float>& mesh_data, const CastedResource<unsigned char>& texture_data,
+Model::Model(const CastedResource<float>& mesh_data, Texture texture,
 		glm::vec3 initial_pos) : 
 	RenderObject(true, false, true, true),
 	mesh_data(mesh_data),
-	texture_data(texture_data),
+	texture(texture),
 	model_transform(1.0f),
 	position(initial_pos),
 	scale(1.0f),
 	rotx(0), roty(0), rotz(0) {
-	model_transform = glm::translate(model_transform, this->position);
+	this->model_transform = glm::translate(model_transform, this->position);
+
+	// set default texture parameters
+	this->texture.SetParam(GL_TEXTURE_WRAP_S, GL_REPEAT);
+	this->texture.SetParam(GL_TEXTURE_WRAP_T, GL_REPEAT);
+	this->texture.SetParam(GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+	this->texture.SetParam(GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 }
 
 bool Model::Construct(Renderer&) {
@@ -27,11 +33,19 @@ bool Model::Construct(Renderer&) {
 	glEnableVertexAttribArray(0);
 
 	// texture
-	// if (this->texture_data != NoTexture) {
-	// 	glGenTextures(1, &this->texture);
-	// 	glBindTexture(GL_TEXTURE_2D, this->texture);
-		
-	// }
+	if (this->texture.GetTexData() != NoTexture) {
+		glGenTextures(1, &this->textureID);
+		glBindTexture(GL_TEXTURE_2D, this->textureID);
+
+		// apply texture parameters
+		for (auto& t : this->texture.params) {
+			if (std::holds_alternative<int>(t.second)) {
+				glTexParameteri(GL_TEXTURE_2D, t.first, std::get<int>(t.second));
+			} else if (std::holds_alternative<float>(t.second)) {
+				glTexParameteri(GL_TEXTURE_2D, t.first, std::get<float>(t.second));
+			}
+		}
+	}
 
 	this->vertices_count = this->mesh_data.len / 3;
 
@@ -63,7 +77,7 @@ bool Model::Render(Renderer& renderer) {
 
 bool Model::Destroy(Renderer&) {
 	glDeleteBuffers(1, &this->meshVBO);
-	if (this->texture_data != NoTexture) glDeleteTextures(1, &this->texture);
+	if (this->texture.GetTexData() != NoTexture) glDeleteTextures(1, &this->textureID);
 	glDeleteVertexArrays(1, &this->modelVAO);
 
 	return true;

@@ -114,7 +114,15 @@
 #include <fstream>
 #include <unordered_map>
 
+#define STB_IMAGE_IMPLEMENTATION
+#include "stb_image.h"
+
 namespace Solaris {
+
+typedef enum FileType {
+	RAW,
+	IMAGE
+} FileType;
 
 /**
  * @struct Resource
@@ -261,12 +269,10 @@ public:
 	~ResourceMan();
 
 	Resource FetchResource(unsigned id);
-	unsigned LoadResource(std::string file_location, bool load_as_string = false);
+	unsigned LoadResource(std::string file_location, bool load_as_string = false, FileType filetype = RAW);
 	unsigned LoadResource(std::string vse_container_location, uint64_t offset);	// NOT IMPLEMENTED
 	unsigned OwnResource(void * resource_address, unsigned long resource_size);
 	void DestroyResource(unsigned id, bool unload = true);
-
-
 
 	template<typename _cast_type> CastedResource<_cast_type>
 	FetchCasted(unsigned id) { return CastResource<_cast_type>(this->resources[id]); };

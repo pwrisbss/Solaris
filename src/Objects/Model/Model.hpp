@@ -3,6 +3,7 @@
 
 #include <Renderer/RenderObjects.hpp>
 #include <Renderer/Renderer.hpp>
+#include <Texture/Texture.hpp>
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <glm/glm.hpp>
@@ -11,10 +12,9 @@
 
 namespace Solaris {
 
-const CastedResource<unsigned char> NoTexture = {0, nullptr};
-const glm::vec3 XAxis(1.0f, 0.0f, 0.0f);
-const glm::vec3 YAxis(0.0f, 1.0f, 0.0f);
-const glm::vec3 ZAxis(0.0f, 0.0f, 1.0f);
+constexpr glm::vec3 XAxis(1.0f, 0.0f, 0.0f);
+constexpr glm::vec3 YAxis(0.0f, 1.0f, 0.0f);
+constexpr glm::vec3 ZAxis(0.0f, 0.0f, 1.0f);
 
 class Model : public RenderObject { MyNameIs("Model")
 private:
@@ -22,18 +22,18 @@ private:
 	glm::vec3 scale;
 	glm::mat4 model_transform;
 	CastedResource<float> mesh_data;
-	CastedResource<unsigned char> texture_data;
+	Texture texture;
 	bool transform_updated = true;
 	float rotx;
 	float roty;
 	float rotz;
 	unsigned meshVBO;
 	unsigned modelVAO;
-	unsigned texture;
+	unsigned textureID;
 	unsigned long vertices_count;
 
 public:
-	Model(const CastedResource<float>& mesh_data, const CastedResource<unsigned char>& texture_data,
+	Model(const CastedResource<float>& mesh_data, Texture texture_data,
 		glm::vec3 initial_pos = {0.0f, 0.0f, 0.0f});
 	~Model();
 
